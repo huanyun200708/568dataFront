@@ -1,0 +1,71 @@
+<!--0baoyangjilu.wxml-->
+<text>报告综述：</text>
+<view class="table">
+  <block wx:for="{{listData}}" wx:key="{{code}}">
+    <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+      <view class="td-1" selectable="true">{{item.code}}</view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        {{item.text}}
+      </view>
+      <!--view class="td">{{item.type}}</view-->
+    </view>
+    <view class="tr bg-g2" wx:else>
+      <view class="td-1" selectable="true">{{item.code}}</view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        {{item.text}}
+      </view>
+    </view>
+  </block>
+</view>
+<text>详细结果：</text>
+<view class="table">
+  <block wx:for="{{result_content}}" wx:key="{{index}}">
+    <view class="tr">
+      <view class="td-1" selectable="true">维修项目</view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        {{item.content}}
+      </view>
+    </view>
+    <view class="tr ">
+      <view class="td-1" selectable="true">入店时间</view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        {{item.date}}
+      </view>
+    </view>
+    <view class="tr " >
+      <view class="td-1" selectable="true">维修材料</view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        {{item.materal}}
+      </view>
+    </view>
+    <view class="tr " >
+      <view class="td-1" selectable="true">入店公里数</view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        {{item.mileage}}
+      </view>
+    </view>
+    <view class="tr " style="border-bottom:2px solid #ddd;">
+      <view class="td-1" selectable="true">备注</view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        {{item.remark}}
+      </view>
+    </view>
+  </block>
+</view>
+<text>异常描述：</text>
+<view class="table">
+  <block wx:for="{{result_description}}" wx:key="{{index}}">
+    <view class="tr">
+      <view class="td-1" selectable="true">描述</view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        {{item.content}}
+      </view>
+    </view>
+    <view class="tr "  style="border-bottom:2px solid #ddd;">
+      <view class="td-1" selectable="true">日期</view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        {{item.date}}
+      </view>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,89 @@
+<!--0chuxianjilu.wxml-->
+<view class="table">
+  <block wx:for="{{listData}}" wx:key="{{code}}">
+    <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+      <view class="td-1" selectable="true">{{item.code}}</view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{item.text}}</text>
+      </view>
+      <!--view class="td">{{item.type}}</view-->
+    </view>
+    <view class="tr bg-g2" wx:else>
+      <view class="td-1" selectable="true">{{item.code}}</view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{item.text}}</text>
+      </view>
+    </view>
+  </block>
+</view>
+<view class="table">
+  <block wx:for="{{carClaimRecords}}" wx:key="{{licenseNo}}">
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true">
+        <view class="tr">
+          <view class="td-1" selectable="true">车牌号</view>
+          <view class="td-2" selectable="true" scroll-y="true">
+            {{item.licenseNo}}
+          </view>
+        </view>
+
+         <view class="tr">
+          <view class="td-1" selectable="true">其他金额(元)</view>
+          <view class="td-2" selectable="true" scroll-y="true">
+            {{item.otherAmount}}
+          </view>
+        </view>
+
+        <view class="tr">
+          <view class="td-1" selectable="true">维修金额(元)</view>
+          <view class="td-2" selectable="true" scroll-y="true">
+            {{item.repairAmount}}
+          </view>
+        </view>
+
+        <view class="tr">
+          <view class="td-1" selectable="true">换件金额(元)</view>
+          <view class="td-2" selectable="true" scroll-y="true">
+            {{item.renewalAmount}}
+          </view>
+        </view>
+
+        <view class="tr">
+          <view class="td-1" selectable="true">出险时间</view>
+          <view class="td-2" selectable="true" scroll-y="true">
+            {{item.dangerTime}}
+          </view>
+        </view>
+
+        <view class="tr">
+          <view class="td-1" selectable="true">理赔金额(元)</view>
+          <view class="td-2" selectable="true" scroll-y="true">
+            {{item.damageMoney}}
+          </view>
+        </view> 
+      </view>
+      <view class="td-2" selectable="true" style="border-left:2px solid #ddd;" scroll-y="true">
+        <block wx:for="{{item.claimDetails}}" wx:key="{{index}}">
+          <view class="tr">
+            <view class="td-1" selectable="true">项目</view>
+            <view class="td-2" selectable="true" scroll-y="true">
+              <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{item.itemName}}</text>
+            </view>
+          </view>
+          <view class="tr ">
+            <view class="td-1" selectable="true">类型</view>
+            <view class="td-2" selectable="true" scroll-y="true">
+              <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{item.itemType}}</text>
+            </view>
+          </view>
+          <view class="tr " style="border-bottom:2px solid #ddd;">
+            <view class="td-1" selectable="true">金额(元)</view>
+            <view class="td-2" selectable="true" scroll-y="true">
+              <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{item.itemAmount}}</text>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </block>
+</view>

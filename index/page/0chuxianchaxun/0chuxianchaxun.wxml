@@ -1,0 +1,9 @@
+<view class="c-minheight wx-view_qFg2AX" data-c_e_id="wx_view_89d9d011">
+    <input class="c-block c-fullwidth wx-input_04x80Y"  bindinput="bindKeyInput" data-c_e_id="wx_input_b6c0d469" name="input1" placeholder="请输入车架号/车牌号" type="text"/>
+      <picker class="wx-picker_T6kSzT" data-c_e_id="wx_picker_52cedf91" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <text class="c-block wx-text_AZoksM" data-c_e_id="wx_text_8f91a3a4">{{array[index]}}</text>
+    </picker>
+    <button class="wx-button_dxk3Mc" catchtap="tap_CXCX" data-c_act_id="M_CXCX" data-c_e_id="wx_button_CXCX" hover-class="button-hover" size="default" type="primary">
+        提交查询
+    </button>
+</view>
