@@ -15,7 +15,7 @@
       <picker class="wx-picker_T6kSzT" data-c_e_id="wx_picker_52cedf91" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
         <text class="c-block wx-text_AZoksM" data-c_e_id="wx_text_8f91a3a4">{{array[index]}}</text>
     </picker> -->
-    <text class="c-block wx-text_zncpF0" data-c_e_id="wx_text_b8537f9d">查维保记录请输车架号/查出险记录请输车牌号（字母必须大写）</text>
+    <!-- <text class="c-block wx-text_zncpF0" data-c_e_id="wx_text_b8537f9d">查维保记录请输车架号/查出险记录请输车牌号（字母必须大写）</text> -->
     <button class="wx-button_Te5Q0x" catchtap="tap_WBJL" data-c_e_id="wx_button_WBJL" data-c_act_id="M_WBJL" 
     hover-class="button-hover" size="default" type="default">
         维保查询

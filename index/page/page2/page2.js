@@ -100,7 +100,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh () {
-
+    wx.stopPullDownRefresh();
     wx.showLoading({ title: '查询中' });//////////////////////////////////////
     var that = this;
     wx.login({
@@ -132,12 +132,14 @@ Page({
                 }
               })
               wx.hideLoading();//////////////////////////////////////////////
+              wx.stopPullDownRefresh();
               return;
             }
             that.setData({ result: o });
           },
           'fail': function (res) {
             wx.hideLoading();//////////////////////////////////////////////
+            wx.stopPullDownRefresh();
           }
         });
       }
