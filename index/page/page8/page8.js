@@ -4,7 +4,9 @@ require('coolsite.config.js');
 
 // 获取全局应用程序实例对象
 var app = getApp();
-
+var globalpos1 = -11;
+var globalpos2 = -11;
+var globalpos3 = -11;
 // 创建页面实例对象
 Page({
   /**
@@ -29,19 +31,55 @@ Page({
     app.coolsite360.register(this);
   },
   licenseNoInput: function (e) {
-    this.setData({
-      licenseNo: e.detail.value
-    })
+    var value = e.detail.value;
+    var pos = e.detail.cursor;
+    console.log(pos)
+    if (globalpos1 != pos || pos == null) {
+      globalpos1 = pos;
+      this.setData({
+        licenseNo: value.toUpperCase()
+      })
+      console.log(value.toUpperCase())
+      return value.toUpperCase();
+    } else if (globalpos1 == pos) {
+      this.setData({
+        licenseNo: value.toUpperCase()
+      })
+    }
   },
   carVinInput: function (e) {
-    this.setData({
-      carVin: e.detail.value
-    })
+    var value = e.detail.value;
+    var pos = e.detail.cursor;
+    console.log(pos)
+    if (globalpos2 != pos || pos == null) {
+      globalpos2 = pos;
+      this.setData({
+        carVin: value.toUpperCase()
+      })
+      console.log(value.toUpperCase())
+      return value.toUpperCase();
+    } else if (globalpos2 == pos) {
+      this.setData({
+        carVin: value.toUpperCase()
+      })
+    }
   },
   engineNoInput: function (e) {
-    this.setData({
-      engineNo: e.detail.value
-    })
+    var value = e.detail.value;
+    var pos = e.detail.cursor;
+    console.log(pos)
+    if (globalpos3 != pos || pos == null) {
+      globalpos3 = pos;
+      this.setData({
+        engineNo: value.toUpperCase()
+      })
+      console.log(value.toUpperCase())
+      return value.toUpperCase();
+    } else if (globalpos3 == pos) {
+      this.setData({
+        engineNo: value.toUpperCase()
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

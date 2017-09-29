@@ -185,9 +185,11 @@ Page({
     app.coolsite360.fireEvent(e, this);
   },
 
+//联系我们
   tap_5da47727: function (e) {
+    wx.navigateTo({ url: '../lianxiwomen/lianxiwomen' });
     //触发coolsite360交互事件
-    app.coolsite360.fireEvent(e, this);
+    //app.coolsite360.fireEvent(e, this);
   },
 
 })

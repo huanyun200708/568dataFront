@@ -4,9 +4,9 @@
       <text class="userinfo-nickname">{{userInfo.nickName}} </text>
     </view>
     <text class="c-block wx-text_xOH5JA" data-c_e_id="wx_text_7a1305a3">{{userLeve}}</text>
-    <button class="wx-button_2KEt2p" data-c_e_id="wx_button_22569ad6" hover-class="button-hover" size="default" type="default">
+    <!-- <button class="wx-button_2KEt2p" data-c_e_id="wx_button_22569ad6" hover-class="button-hover" size="default" type="default">
         我的账单
-    </button>
+    </button> -->
     <button catchtap="tap_fdac8192" class="wx-button_oAUDUN" data-c_act_id="M_369d6e37d67eab19" data-c_e_id="wx_button_61fe830e" hover-class="button-hover" size="default" type="default">
         加入会员
     </button>

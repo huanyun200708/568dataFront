@@ -16,6 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({ title: '查询中' });//////////////////////////////////////
     var that = this;
     this.setData({
       orderId: options.orderId
@@ -28,16 +29,19 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       data: {
-        'orderId': options.orderId
-       // orderId: 'kry0l03yd4xpxd7g2z4j10of2ans1noi'
+        'orderId': options.orderId,//"mo2ota4j0b9rcte1cdpmrsesz9lpl110"
+        'payType': 'BYJL'
       },
       success: function success(res) {
         console.log(res.data)
         var o = res.data.result;
+        if (typeof (res.data) != "object"){
+          o = JSON.parse(res.data.replace('\\','')).result;
+        }
         if (o == null) {
           wx.showModal({
             title: '提示',
-            content: res.data.reason,
+            content: res.data.errorMessage,
             success: function (res) {
               if (res.confirm) {
                 console.log('用户点击确定')
@@ -46,6 +50,7 @@ Page({
               }
             }
           })
+          wx.hideLoading();//////////////////////////////////////////////
           return;
         }
         var summaryInfoList = [
@@ -55,12 +60,11 @@ Page({
           { "code": "最后到店时间", "text": o.last_time_to_shop },
           { "code": "结果报告", "text": o.result_report }
         ]
+        wx.hideLoading();//////////////////////////////////////////////
         that.setData({ listData: summaryInfoList, result_description: o.result_description, result_content: o.result_content })
-        wx.showToast({
-          title: o.reason,
-          icon: 'success',
-          duration: 2000
-        })
+      },
+      'fail': function (res) {
+        wx.hideLoading();//////////////////////////////////////////////
       }
     });
 

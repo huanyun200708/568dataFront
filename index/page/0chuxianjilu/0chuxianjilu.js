@@ -15,6 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({ title: '查询中' });//////////////////////////////////////
     var that = this;
     this.setData({
       orderId: options.orderId
@@ -44,6 +45,7 @@ Page({
               }
             }
           })
+          wx.hideLoading();//////////////////////////////////////////////
           return;
         }
         var summaryInfoList = [
@@ -54,12 +56,11 @@ Page({
           { "code": "维修总件数", "text": o.summaryData.repairCount },
           { "code": "换件总金额(元)", "text": o.summaryData.renewMoney }
         ]
-        that.setData({ listData: summaryInfoList, carClaimRecords: o.carClaimRecords})
-        wx.showToast({
-          title: o.reason,
-          icon: 'success',
-          duration: 2000
-        })
+        wx.hideLoading();//////////////////////////////////////////////
+        that.setData({ listData: summaryInfoList, carClaimRecords: o.carClaimRecords});
+      },
+      'fail': function (res) {
+        wx.hideLoading();//////////////////////////////////////////////
       }
     });
   

@@ -39,6 +39,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    wx.showLoading({ title: '查询中' });//////////////////////////////////////
     var that = this;
     wx.login({
       success: function (res) {
@@ -53,6 +54,7 @@ Page({
             'code': res.code
           },
           success: function success(res) {
+            wx.hideLoading();//////////////////////////////////////////////
             console.log(res.data)
             var o = res.data;
             if (o == null) {
@@ -71,6 +73,9 @@ Page({
               return;
             }
             that.setData({ result: o });
+          },
+          'fail': function (res) {
+            wx.hideLoading();//////////////////////////////////////////////
           }
         });
       }
@@ -95,7 +100,48 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh () {
-    
+
+    wx.showLoading({ title: '查询中' });//////////////////////////////////////
+    var that = this;
+    wx.login({
+      success: function (res) {
+        wx.request({
+          url: 'https://51yangcong.com/568data/PayRecord',
+          //url: 'https://localhost/568data/PayRecord',
+          method: 'POST',
+          header: {
+            'content-type': 'application/x-www-form-urlencoded'
+          },
+          data: {
+            'code': res.code
+          },
+          success: function success(res) {
+            wx.hideLoading();//////////////////////////////////////////////
+            console.log(res.data)
+            var o = res.data;
+            if (o == null) {
+              wx.showModal({
+                title: '提示',
+                content: res.data.reason,
+                success: function (res) {
+                  if (res.confirm) {
+                    console.log('用户点击确定')
+                  } else if (res.cancel) {
+                    console.log('用户点击取消')
+                  }
+                }
+              })
+              wx.hideLoading();//////////////////////////////////////////////
+              return;
+            }
+            that.setData({ result: o });
+          },
+          'fail': function (res) {
+            wx.hideLoading();//////////////////////////////////////////////
+          }
+        });
+      }
+    });
   },
 
 

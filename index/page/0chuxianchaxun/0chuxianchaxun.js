@@ -4,7 +4,8 @@ require('coolsite.config.js');
 
 // 获取全局应用程序实例对象
 var app = getApp();
-
+var globalpos = -11;
+var globalpos1 = -11;
 // 创建页面实例对象
 Page({
   /**
@@ -17,6 +18,7 @@ Page({
 
   data: {
     inputValue: "",
+    inputValue1: "",
     licenseNo: "",
     frameNo: "",
     array: ['车架', '车牌'],
@@ -39,11 +41,6 @@ Page({
   onLoad () {
     // 注册coolsite360交互模块
     app.coolsite360.register(this);
-  },
-  bindKeyInput: function (e) {
-    this.setData({
-      licenseNo: e.detail.value
-    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -88,20 +85,42 @@ Page({
     })
   },
   bindKeyInput: function (e) {
-    if (this.data.index == 0) {
+    var value = e.detail.value;
+    var pos = e.detail.cursor;
+    console.log(pos)
+    if (globalpos != pos || pos == null) {
+      globalpos = pos;
       this.setData({
         inputValue: e.detail.value,
-        frameNo: e.detail.value,
-        licenseNo:""
+        licenseNo: value.toUpperCase()
       })
-    } else {
+      console.log(value.toUpperCase())
+      return value.toUpperCase();
+    } else if (globalpos == pos) {
       this.setData({
         inputValue: e.detail.value,
-        licenseNo: e.detail.value,
-        frameNo: ""
+        licenseNo: value.toUpperCase()
       })
     }
-
+  },
+  bindKeyInput1: function (e) {
+    var value = e.detail.value;
+    var pos = e.detail.cursor;
+    console.log(pos)
+    if (globalpos1 != pos || pos == null) {
+      globalpos1 = pos;
+      this.setData({
+        inputValue1: e.detail.value,
+        frameNo: value.toUpperCase()
+      })
+      console.log(value.toUpperCase())
+      return value.toUpperCase();
+    } else if (globalpos1 == pos) {
+      this.setData({
+        inputValue1: e.detail.value,
+        frameNo: value.toUpperCase()
+      })
+    }
   },
   //以下为自定义点击事件
   tap_CXCX: function (e) {

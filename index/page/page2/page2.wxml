@@ -12,12 +12,13 @@
       <view class="td-2" style='width:50%;' selectable="true" scroll-y="true">
         {{item.content}}
       </view>
-      <view class="td-2" style='width:20%;' selectable="true" scroll-y="true" wx:if="{{item.queryType != 'GJHY' && item.queryType != 'ZJHY'}}">
+      <view class="td-2" style='width:20%;' selectable="true" scroll-y="true" wx:if="{{item.queryType != 'GJHY' && item.queryType != 'ZJHY' && item.content1 != '正在查询'}}">
         <button style='padding:0px;font-size:0.7rem;line-height:1rem;' catchtap="tap_CKXQ" id="{{item.orderid+'[$$]'+item.queryType}}" queryType='{{item.queryType}}' hover-class="button-hover" size="default" type="primary">
           查看详情
         </button>
       </view>
-      <view class="td-2" style='width:20%;' selectable="true" scroll-y="true" wx:else>
+      <view class="td-2" style='width:20%;' selectable="true" scroll-y="true" wx:if="{{item.content1 == '正在查询'}}">
+            <text class="c-block wx-text_7UUdKC" style='color:red;'>正在查询</text>
       </view>
     </view>
     <view class="tr bg-g2" wx:else>
@@ -27,12 +28,13 @@
       <view class="td-2" style='width:50%;' selectable="true" scroll-y="true">
         {{item.content}}
       </view>
-      <view class="td-2" style='width:20%;' selectable="true" scroll-y="true" wx:if="{{item.queryType != 'GJHY' && item.queryType != 'ZJHY'}}">
+      <view class="td-2" style='width:20%;' selectable="true" scroll-y="true" wx:if="{{item.queryType != 'GJHY' && item.queryType != 'ZJHY' && item.content1 != '正在查询'}}">
         <button style='padding:0px;font-size:0.7rem;line-height:1rem;' catchtap="tap_CKXQ" id="{{item.orderid+'[$$]'+item.queryType}}" queryType='{{item.queryType}}' hover-class="button-hover" size="default" type="primary">
           查看详情
         </button>
       </view>
-      <view class="td-2" style='width:20%;' selectable="true" scroll-y="true" wx:else>
+       <view class="td-2" style='width:20%;' selectable="true" scroll-y="true" wx:if="{{item.content1 == '正在查询'}}">
+            <text class="c-block wx-text_7UUdKC" style='color:red;'>正在查询</text>
       </view>
     </view>
   </block>

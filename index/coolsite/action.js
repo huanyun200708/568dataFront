@@ -694,7 +694,8 @@ var clzt = function (detail, data) {
           'code': res.code,
           'payType': 'CLZT',
           'number': data.number1,
-          'type': 'type'
+          'cltype': data.indexid,
+          'cltypevalue': data.indexvalue
         },
         success: function success(res) {
           wx.hideLoading();//////////////////////////////////////////////
@@ -735,7 +736,8 @@ var clzt = function (detail, data) {
                     'orderId': orderId,
                     'payType': 'CLZT',
                     'number': data.number1,
-                    'type': 'type'
+                    'cltype': data.indexid,
+                    'cltypevalue': data.indexvalue
                   },
                   success: function success(res) {
                     console.log(res)
@@ -764,6 +766,9 @@ var clzt = function (detail, data) {
               wx.hideLoading();//////////////////////////////////////////////
             }
           })
+        },
+        'fail': function (res) {
+          wx.hideLoading();//////////////////////////////////////////////
         }
       });
     }

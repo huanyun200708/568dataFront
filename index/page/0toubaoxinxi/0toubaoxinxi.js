@@ -12,6 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({ title: '查询中' });//////////////////////////////////////
     var that = this;
     this.setData({
       orderId: options.orderId
@@ -41,14 +42,14 @@ Page({
               }
             }
           })
+          wx.hideLoading();//////////////////////////////////////////////
           return;
         }
+        wx.hideLoading();//////////////////////////////////////////////
         that.setData({ UserInfo: o.UserInfo, SaveQuote: o.SaveQuote })
-        wx.showToast({
-          title: o.reason,
-          icon: 'success',
-          duration: 2000
-        })
+      },
+      'fail': function (res) {
+        wx.hideLoading();//////////////////////////////////////////////
       }
     });
   },
