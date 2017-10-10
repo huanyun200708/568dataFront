@@ -1,13 +1,13 @@
 <view class="c-minheight wx-view_hayoar" data-c_e_id="wx_view_6d45a03f">
     <swiper autoplay="True" class="wx-swiper_fKTqhJ" data-c_e_id="wx_swiper_3968806c" indicator-dots="True" lower-threshold="50">
         <swiper-item class="c-full wx-swiper-item_n5s0LF" data-c_e_id="wx_swiper_item_92a1ed10">
-            <image class="wx-image_52aaAm" data-c_e_id="wx_image_90c078f9" mode="scaleToFill" src="http://qty83k.creatby.com/materials/origin/8d62474811a370499aa86671f5fef520_origin.png" style="background-size:  100% 100%; background-position:  0% 0%; background-repeat:  no-repeat; background-image: url(http://qty83k.creatby.com/materials/origin/8d62474811a370499aa86671f5fef520_origin.png); "/>
+            <image class="wx-image_52aaAm" data-c_e_id="wx_image_90c078f9" mode="scaleToFill" src="https://51yangcong.com/568data/image/1.jpg" style="background-size:  100% 100%; background-position:  0% 0%; background-repeat:  no-repeat; background-image: url(http://qty83k.creatby.com/materials/origin/8d62474811a370499aa86671f5fef520_origin.png); "/>
         </swiper-item>
         <swiper-item class="c-full wx-swiper-item_X5DGC5" data-c_e_id="wx_swiper_item_c81382ae">
-            <image catchtap="tap_bafd41db" class="wx-image_kFUAyw" data-c_act_id="M_677dc7396eb4cec7" data-c_e_id="wx_image_d5ee6e67" mode="scaleToFill" src="http://qty83k.creatby.com/materials/origin/c3c391189d2a92dea13c67d9c8d715fe_origin.png" style="background-size:  100% 100%; background-position:  0% 0%; background-repeat:  no-repeat; background-image: url(http://qty83k.creatby.com/materials/origin/c3c391189d2a92dea13c67d9c8d715fe_origin.png); "/>
+            <image catchtap="tap_bafd41db" class="wx-image_kFUAyw" data-c_act_id="M_677dc7396eb4cec7" data-c_e_id="wx_image_d5ee6e67" mode="scaleToFill" src="https://51yangcong.com/568data/image/2.jpg" style="background-size:  100% 100%; background-position:  0% 0%; background-repeat:  no-repeat; background-image: url(http://qty83k.creatby.com/materials/origin/c3c391189d2a92dea13c67d9c8d715fe_origin.png); "/>
         </swiper-item>
         <swiper-item class="c-full wx-swiper-item_MPwTkq" data-c_e_id="wx_swiper_item_125c716c">
-            <image catchtap="tap_483ab025" class="wx-image_7yOB4A" data-c_act_id="M_1d958f03ae76fda4" data-c_e_id="wx_image_ce7e116b" mode="scaleToFill" src="http://qty83k.creatby.com/materials/origin/c8c2ff33dc27ef90e99fddf7cc895755_origin.png" style="background-size:  100% 100%; background-position:  0% 0%; background-repeat:  no-repeat; background-image: url(http://qty83k.creatby.com/materials/origin/c8c2ff33dc27ef90e99fddf7cc895755_origin.png); "/>
+            <image catchtap="tap_483ab025" class="wx-image_7yOB4A" data-c_act_id="M_1d958f03ae76fda4" data-c_e_id="wx_image_ce7e116b" mode="scaleToFill" src="https://51yangcong.com/568data/image/3.jpg" style="background-size:  100% 100%; background-position:  0% 0%; background-repeat:  no-repeat; background-image: url(http://qty83k.creatby.com/materials/origin/c8c2ff33dc27ef90e99fddf7cc895755_origin.png); "/>
         </swiper-item>
     </swiper>
       <!--  -->
