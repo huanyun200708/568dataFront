@@ -18,9 +18,18 @@ Page({
    */
 
   data: {
+    number1: "",
     licenseNo:"",
     carVin: "",
     engineNo: "",
+    array: ['小型汽车','大型汽车'],
+    objectArray: [
+      { id: '0', name: '小型汽车' },
+      { id: '1', name: '大型汽车' }
+    ],
+    index: 0,
+    indexid: '0',
+    indexvalue: '小型汽车'
   },
 
   /**
@@ -95,6 +104,15 @@ Page({
     wx.hideLoading();
     // 执行coolsite360交互组件展示
     app.coolsite360.onShow(this);
+  },
+  bindPickerChange: function (e) {
+    var that = this;
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value,
+      indexid: that.data.objectArray[e.detail.value].id,
+      indexvalue: that.data.objectArray[e.detail.value].name
+    })
   },
 
   /**

@@ -126,6 +126,7 @@ var zjhy = function (detail, data) {
               title: '提示',
               content: res.data.errormassage,
               success: function (res) {
+                wx.hideLoading();//////////////////////////////////////////////
                 if (res.confirm) {
                   console.log('用户点击确定')
                 } else if (res.cancel) {
@@ -133,6 +134,7 @@ var zjhy = function (detail, data) {
                 }
               }
             })
+            wx.hideLoading();//////////////////////////////////////////////
             return;
           }
           var obj = res.data;
@@ -156,9 +158,9 @@ var zjhy = function (detail, data) {
                     'orderId': orderId
                   },
                   success: function success(res) {
-                    wx.hideLoading();//////////////////////////////////////////////
                     console.log(res)
                     if (!res.data.success) {
+                      wx.hideLoading();//////////////////////////////////////////////
                       wx.showModal({
                         title: '提示',
                         content: res.data.errorMessage,
@@ -185,7 +187,6 @@ var zjhy = function (detail, data) {
                         'type': 'M'
                       },
                       success: function success(res) {
-                        wx.hideLoading();//////////////////////////////////////////////
                         console.log(res)
                         if (!res.data.success) {
                           wx.showModal({
@@ -250,10 +251,10 @@ var gjhy = function (detail, data) {
           'payType': 'GJHY'
         },
         success: function success(res) {
-          wx.hideLoading();//////////////////////////////////////////////
           var orderId = res.data.orderId;
           var openid = res.data.openid;
           if (orderId == null) {
+            wx.hideLoading();//////////////////////////////////////////////
             wx.showModal({
               title: '提示',
               content: res.data.errormassage,
@@ -290,6 +291,7 @@ var gjhy = function (detail, data) {
                   success: function success(res) {
                     console.log(res)
                     if (!res.data.success) {
+                      wx.hideLoading();//////////////////////////////////////////////
                       wx.showModal({
                         title: '提示',
                         content: res.data.errorMessage,
@@ -382,9 +384,9 @@ var wbjl = function (detail, data) {
           'vin': data.vin
         },
         success: function success(res) {
-          wx.hideLoading();//////////////////////////////////////////////
           var orderId = res.data.orderId;
           if (orderId == null) {
+            wx.hideLoading();//////////////////////////////////////////////
             wx.showModal({
               title: '提示',
               content: res.data.errormassage,
@@ -415,6 +417,7 @@ var wbjl = function (detail, data) {
               success: function success(res) {
                 console.log(res)
                 if (!res.data.success) {
+                  wx.hideLoading();//////////////////////////////////////////////
                   wx.showModal({
                     title: '提示',
                     content: res.data.errorMessage,
@@ -459,6 +462,7 @@ var wbjl = function (detail, data) {
                   success: function success(res) {
                     console.log(res)
                     if (!res.data.success) {
+                      wx.hideLoading();//////////////////////////////////////////////
                       wx.showModal({
                         title: '提示',
                         content: res.data.errorMessage,
@@ -474,10 +478,13 @@ var wbjl = function (detail, data) {
                       return;
                     }
                     wx.navigateTo({ url: '../0baoyangjilu/0baoyangjilu?orderId=' + orderId });
+                  },
+                  'fail': function (res) {
+                    wx.hideLoading();//////////////////////////////////////////////
                   }
                 });
               }
-
+              //wx.hideLoading();//////////////////////////////////////////////
             },
             'fail': function (res) {
               wx.hideLoading();//////////////////////////////////////////////
@@ -511,9 +518,9 @@ var cxjl = function (detail, data) {
           'frameNo': data.frameNo == null ? "" : data.frameNo,
         },
         success: function success(res) {
-          wx.hideLoading();//////////////////////////////////////////////
           var orderId = res.data.orderId;
           if (orderId == null) {
+            wx.hideLoading();//////////////////////////////////////////////
             wx.showModal({
               title: '提示',
               content: res.data.errormassage,
@@ -554,6 +561,7 @@ var cxjl = function (detail, data) {
                   success: function success(res) {
                     console.log(res)
                     if (!res.data.success) {
+                      wx.hideLoading();//////////////////////////////////////////////
                       wx.showModal({
                         title: '提示',
                         content: res.data.errorMessage,
@@ -569,10 +577,13 @@ var cxjl = function (detail, data) {
                       return;
                     }
                     wx.navigateTo({ url: '../0chuxianjilu/0chuxianjilu?orderId=' + orderId });
+                  },
+                  'fail': function (res) {
+                    wx.hideLoading();//////////////////////////////////////////////
                   }
                 });
               }
-
+              //wx.hideLoading();//////////////////////////////////////////////
             },
             'fail': function (res) {
               wx.hideLoading();//////////////////////////////////////////////
@@ -598,15 +609,15 @@ var tbxx = function (detail, data) {
         data: {
           'code': res.code,
           'payType': 'TBXX',
+          'renewalCarType': data.indexid,
           'licenseNo': data.licenseNo,
           'carVin': data.carVin,
-          'engineNo': data.engineNo,
-          'renewalCarType': ''
+          'engineNo': data.engineNo
         },
         success: function success(res) {
-          wx.hideLoading();//////////////////////////////////////////////
           var orderId = res.data.orderId;
           if (orderId == null) {
+            wx.hideLoading();//////////////////////////////////////////////
             wx.showModal({
               title: '提示',
               content: res.data.errormassage,
@@ -641,14 +652,15 @@ var tbxx = function (detail, data) {
                   data: {
                     'orderId': orderId,
                     'payType': 'TBXX',
+                    'renewalCarType': data.indexid,
                     'licenseNo': data.licenseNo,
                     'carVin': data.carVin,
-                    'engineNo': data.engineNo,
-                    'renewalCarType': ''
+                    'engineNo': data.engineNo
                   },
                   success: function success(res) {
                     console.log(res)
                     if (!res.data.success) {
+                      wx.hideLoading();//////////////////////////////////////////////
                       wx.showModal({
                         title: '提示',
                         content: res.data.errorMessage,
@@ -664,10 +676,13 @@ var tbxx = function (detail, data) {
                       wx.hideLoading();//////////////////////////////////////////////
                     }
                     wx.navigateTo({ url: '../0toubaoxinxi/0toubaoxinxi?orderId=' + orderId });
+                  },
+                  'fail': function (res) {
+                    wx.hideLoading();//////////////////////////////////////////////
                   }
                 });
               }
-
+              //wx.hideLoading();//////////////////////////////////////////////
             },
             'fail': function (res) {
               wx.hideLoading();//////////////////////////////////////////////
@@ -698,9 +713,9 @@ var clzt = function (detail, data) {
           'cltypevalue': data.indexvalue
         },
         success: function success(res) {
-          wx.hideLoading();//////////////////////////////////////////////
           var orderId = res.data.orderId;
           if (orderId == null) {
+            wx.hideLoading();//////////////////////////////////////////////
             wx.showModal({
               title: '提示',
               content: res.data.errormassage,
@@ -742,6 +757,7 @@ var clzt = function (detail, data) {
                   success: function success(res) {
                     console.log(res)
                     if (!res.data.success) {
+                      wx.hideLoading();//////////////////////////////////////////////
                       wx.showModal({
                         title: '提示',
                         content: res.data.errorMessage,
@@ -757,10 +773,13 @@ var clzt = function (detail, data) {
                       return;
                     }
                     wx.navigateTo({ url: '../0cheliangzhuangtai/0cheliangzhuangtai?orderId=' + orderId });
+                  },
+                  'fail': function (res) {
+                    wx.hideLoading();//////////////////////////////////////////////
                   }
                 });
               }
-
+              //wx.hideLoading();//////////////////////////////////////////////
             },
             'fail': function (res) {
               wx.hideLoading();//////////////////////////////////////////////
