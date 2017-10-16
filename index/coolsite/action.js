@@ -445,6 +445,7 @@ var wbjl = function (detail, data) {
             'signType': obj.signType,
             'paySign': obj.paySign,
             'success': function (res) {
+              wx.showLoading({ title: '查询中' });//////////////////////////////////////
               console.log(res)
               if (res.errMsg == "requestPayment:ok") {
                 wx.request({
@@ -543,6 +544,7 @@ var cxjl = function (detail, data) {
             'signType': obj.signType,
             'paySign': obj.paySign,
             'success': function (res) {
+              wx.showLoading({ title: '查询中' });//////////////////////////////////////
               console.log(res)
               if (res.errMsg == "requestPayment:ok") {
                 wx.request({
@@ -640,6 +642,7 @@ var tbxx = function (detail, data) {
             'signType': obj.signType,
             'paySign': obj.paySign,
             'success': function (res) {
+              wx.showLoading({ title: '查询中' });//////////////////////////////////////
               console.log(res)
               if (res.errMsg == "requestPayment:ok") {
                 wx.request({
@@ -738,6 +741,7 @@ var clzt = function (detail, data) {
             'signType': obj.signType,
             'paySign': obj.paySign,
             'success': function (res) {
+              wx.showLoading({ title: '查询中' });//////////////////////////////////////
               console.log(res)
               if (res.errMsg == "requestPayment:ok") {
                 wx.request({
