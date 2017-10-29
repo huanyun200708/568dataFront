@@ -4,6 +4,7 @@
         <text class=""style="width:120px;height: 20px;display:block;float:left;" data-c_e_id="wx_text_8f91a3a4">{{array[index]}}</text>
          <image style="width: 20px; height: 20px;margin-top:5px;float:left;" mode="widthFix" src="../../resources/xiala.png"></image>
     </picker>
+    <text class="c-block wx-text_zncpF0" style='padding:5px'>查询车辆 请核对好车辆型号 车号输入不要有空格和特殊字符 付款后稍等既出 假牌空挡正常收费 </text>
     <button class="wx-button_dxk3Mc" catchtap="tap_CLZT" data-c_act_id="M_CLZT" data-c_e_id="wx_button_CLZT" hover-class="button-hover" size="default" type="primary">
         提交查询
     </button>
