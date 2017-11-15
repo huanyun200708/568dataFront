@@ -24,7 +24,7 @@
         出险查询
     </button>
     <button catchtap="tap_a51bae1f" class="wx-button_mEPi0C" data-c_act_id="M_CLZT" data-c_e_id="wx_button_CLZT" hover-class="button-hover" size="default" type="default">
-        状态查询
+        车牌查询
     </button>
     <button catchtap="tap_7a42cdda" class="wx-button_djXwDj" data-c_act_id="M_TBXX" data-c_e_id="wx_button_TBXX" hover-class="button-hover" size="default" type="default">
         投保查询
