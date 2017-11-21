@@ -18,7 +18,9 @@ Page({
   data: {
     
     userInfo: {},
-    userLeve: ''
+    userLeve: '',
+    Mprice: '',
+    Hprice: ''
   
   },
 
@@ -26,8 +28,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad () {
+    var that = this;
     // 注册coolsite360交互模块
     app.coolsite360.register(this);
+    wx.request({
+      url: 'https://51yangcong.com/568data/MemberPriceQuery',
+      //url: 'https://localhost/568data/MemberPriceQuery',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      data: {
+       
+      },
+      success: function success(res) {
+        console.log(res)
+        that.setData({
+          Hprice: res.data.Hprice
+        })
+        that.setData({
+          Mprice: res.data.Mprice
+        })
+      }
+    });
     // var that = this;
     // wx.getUserInfo({
     //   success: function (res) {
@@ -51,7 +74,7 @@ Page({
     //             'content-type': 'application/x-www-form-urlencoded'
     //           },
     //           data: {
-    //             'code': res.code
+    //            
     //           },
     //           success: function success(res) {
     //             console.log(res)
