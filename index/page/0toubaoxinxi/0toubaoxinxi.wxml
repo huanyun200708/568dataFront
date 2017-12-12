@@ -18,18 +18,18 @@
       <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{UserInfo.LicenseOwner}}</text>
     </view>
   </view>
-  <view class="tr bg-g">
+  <!-- <view class="tr bg-g">
     <view class="td-1" selectable="true">投保人</view>
     <view class="td-2" selectable="true" scroll-y="true">
       <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{UserInfo.PostedName}}</text>
     </view>
-  </view>
-  <view class="tr bg-g">
+  </view> -->
+  <!-- <view class="tr bg-g">
     <view class="td-1" selectable="true">被保险人</view>
     <view class="td-2" selectable="true" scroll-y="true">
       <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{UserInfo.InsuredName}}</text>
     </view>
-  </view>
+  </view> -->
   <view class="tr bg-g">
     <view class="td-1" selectable="true">新车购置价格</view>
     <view class="td-2" selectable="true" scroll-y="true">
@@ -42,12 +42,12 @@
       <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{UserInfo.IdType}}</text>
     </view>
   </view>
-  <view class="tr bg-g">
+  <!-- <view class="tr bg-g">
     <view class="td-1" selectable="true">证件号码(车主本人)</view>
     <view class="td-2" selectable="true" scroll-y="true">
       <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{UserInfo.CredentislasNum}}</text>
     </view>
-  </view>
+  </view> -->
   <view class="tr bg-g">
     <view class="td-1" selectable="true">城市</view>
     <view class="td-2" selectable="true" scroll-y="true">
@@ -108,13 +108,13 @@
       <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{UserInfo.SeatCount}}</text>
     </view>
   </view>
-  <view class="tr bg-g">
+  <!-- <view class="tr bg-g">
     <view class="td-1" selectable="true">被保人证件号</view>
     <view class="td-2" selectable="true" scroll-y="true">
       <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{UserInfo.InsuredIdCard}}</text>
     </view>
-  </view>
-  <view class="tr bg-g">
+  </view> -->
+  <!-- <view class="tr bg-g">
     <view class="td-1" selectable="true">被保人证件类型</view>
     <view class="td-2" selectable="true" scroll-y="true">
       <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{UserInfo.InsuredIdType}}</text>
@@ -125,8 +125,8 @@
     <view class="td-2" selectable="true" scroll-y="true">
       <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{UserInfo.InsuredMobile}}</text>
     </view>
-  </view>
-  <view class="tr bg-g">
+  </view> -->
+  <!-- <view class="tr bg-g">
     <view class="td-1" selectable="true">投保人证件号</view>
     <view class="td-2" selectable="true" scroll-y="true">
       <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{UserInfo.HolderIdCard}}</text>
@@ -137,13 +137,13 @@
     <view class="td-2" selectable="true" scroll-y="true">
       <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{UserInfo.HolderIdType}}</text>
     </view>
-  </view>
-  <view class="tr bg-g">
+  </view> -->
+  <!-- <view class="tr bg-g">
     <view class="td-1" selectable="true">投保人联系方式</view>
     <view class="td-2" selectable="true" scroll-y="true">
       <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{UserInfo.HolderMobile}}</text>
     </view>
-  </view>
+  </view> -->
   <view class="tr bg-g">
     <view class="td-1" selectable="true">费率系数1</view>
     <view class="td-2" selectable="true" scroll-y="true">
