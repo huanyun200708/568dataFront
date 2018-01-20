@@ -381,7 +381,9 @@ var wbjl = function (detail, data) {
         data: {
           'code': res.code,
           'payType': 'BYJL',
-          'vin': data.vin
+          'vin': data.vin,
+          'enginno': data.enginno,
+          'licenseplate': data.licenseplate
         },
         success: function success(res) {
           var orderId = res.data.orderId;
@@ -412,7 +414,9 @@ var wbjl = function (detail, data) {
               data: {
                 'orderId': orderId,
                 'payType': 'BYJL',
-                'vin': data.vin
+                'vin': data.vin,
+                'enginno': data.enginno,
+                'licenseplate': data.licenseplate
               },
               success: function success(res) {
                 console.log(res)
@@ -432,7 +436,7 @@ var wbjl = function (detail, data) {
                   wx.hideLoading();//////////////////////////////////////////////
                   return;
                 }
-                wx.navigateTo({ url: '../0baoyangjilu/0baoyangjilu?orderId=' + orderId });
+                wx.navigateTo({ url: '../1baoyangjilu/1baoyangjilu?orderId=' + orderId });
               }
             });
             return;
@@ -478,7 +482,7 @@ var wbjl = function (detail, data) {
                       wx.hideLoading();//////////////////////////////////////////////
                       return;
                     }
-                    wx.navigateTo({ url: '../0baoyangjilu/0baoyangjilu?orderId=' + orderId });
+                    wx.navigateTo({ url: '../1baoyangjilu/1baoyangjilu?orderId=' + orderId });
                   },
                   'fail': function (res) {
                     wx.hideLoading();//////////////////////////////////////////////

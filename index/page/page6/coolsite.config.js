@@ -52,7 +52,7 @@ var actions = [
     "element_id": "wx_button_WBJL", 
     "data": {
       "args": {
-        "url": "../0weibaochaxun/0weibaochaxun",
+        "url": "../1weibaochaxun/1weibaochaxun",
         "open_type": "navigate", 
         "a_ids": [], 
         "e_ids": [], 
