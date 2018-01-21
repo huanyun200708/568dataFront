@@ -5,13 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    listData: [],
-    inputValue: '', //用于显示输入语句  
-    searchinput: '', //用户输入的查询语句  
-    result_content: [],
-    result_description :[]
+    resultData: ''
   },
-
+ 
   /**
    * 生命周期函数--监听页面加载
    */
@@ -22,8 +18,8 @@ Page({
       orderId: options.orderId
     })
     wx.request({
-      url: 'https://51yangcong.com/568data/QueryOrder',
-      //url: 'https://localhost/568data/QueryOrder',
+     url: 'https://51yangcong.com/568data/QueryOrder',
+      // url: 'https://localhost/568data/QueryOrder',
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -34,9 +30,9 @@ Page({
       },
       success: function success(res) {
         console.log(res.data)
-        var o = res.data.result;
+        var o = res.data;
         if (typeof (res.data) != "object"){
-          o = JSON.parse(res.data.replace('\\','')).result;
+          o = JSON.parse(res.data.replace('\\',''));
         }
         if (o == null) {
           wx.showModal({
@@ -53,15 +49,8 @@ Page({
           wx.hideLoading();//////////////////////////////////////////////
           return;
         }
-        var summaryInfoList = [
-          { "code": "公里数", "text": o.total_mileage },
-          { "code": "异常次数", "text": o.number_of_accidents },
-          { "code": "车辆品牌", "text": o.car_brand },
-          { "code": "最后到店时间", "text": o.last_time_to_shop },
-          { "code": "结果报告", "text": o.result_report }
-        ]
         wx.hideLoading();//////////////////////////////////////////////
-        that.setData({ listData: summaryInfoList, result_description: o.result_description, result_content: o.result_content })
+        that.setData({ resultData: o })
       },
       'fail': function (res) {
         wx.hideLoading();//////////////////////////////////////////////

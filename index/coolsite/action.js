@@ -372,7 +372,7 @@ var wbjl = function (detail, data) {
   wx.login({
     success: function (res) {
       wx.request({
-       url: 'https://51yangcong.com/568data/PayOff',
+        url: 'https://51yangcong.com/568data/PayOff',
         //url: 'https://localhost/568data/PayOff',
         method: 'POST',
         header: {
@@ -403,44 +403,6 @@ var wbjl = function (detail, data) {
             return;
           }
           wx.showLoading({ title: '查询中' });//////////////////////////////////////
-          if (res.data.notRepeatPay != null && res.data.notRepeatPay==true){
-            wx.request({
-              url: 'https://51yangcong.com/568data/PaySuccess',
-              //url: 'https://localhost/568data/PaySuccess',
-              method: 'POST',
-              header: {
-                'content-type': 'application/x-www-form-urlencoded'
-              },
-              data: {
-                'orderId': orderId,
-                'payType': 'BYJL',
-                'vin': data.vin,
-                'enginno': data.enginno,
-                'licenseplate': data.licenseplate
-              },
-              success: function success(res) {
-                console.log(res)
-                if (!res.data.success) {
-                  wx.hideLoading();//////////////////////////////////////////////
-                  wx.showModal({
-                    title: '提示',
-                    content: res.data.errorMessage,
-                    success: function (res) {
-                      if (res.confirm) {
-                        console.log('用户点击确定')
-                      } else if (res.cancel) {
-                        console.log('用户点击取消')
-                      }
-                    }
-                  })
-                  wx.hideLoading();//////////////////////////////////////////////
-                  return;
-                }
-                wx.navigateTo({ url: '../1baoyangjilu/1baoyangjilu?orderId=' + orderId });
-              }
-            });
-            return;
-          }
           var obj = res.data;
           wx.requestPayment({
             'timeStamp': obj.timeStamp,
@@ -462,7 +424,9 @@ var wbjl = function (detail, data) {
                   data: {
                     'orderId': orderId,
                     'payType': 'BYJL',
-                    'vin': data.vin
+                    'vin': data.vin,
+                    'enginno': data.enginno,
+                    'licenseplate': data.licenseplate
                   },
                   success: function success(res) {
                     console.log(res)
@@ -495,6 +459,11 @@ var wbjl = function (detail, data) {
               wx.hideLoading();//////////////////////////////////////////////
             }
           })
+          // if (res.data.notRepeatPay != null && res.data.notRepeatPay==true){
+          
+          //   return;
+          // }
+         
         }
       });
     }

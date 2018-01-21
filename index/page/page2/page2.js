@@ -153,7 +153,7 @@ Page({
     if (id.indexOf("[$$]CLZT")>-1){
       wx.navigateTo({ url: '../0cheliangzhuangtai/0cheliangzhuangtai?orderId=' + id.replace('[$$]CLZT', "") });
     } else if (id.indexOf("[$$]BYJL") > -1) {
-      wx.navigateTo({ url: '../0baoyangjilu/0baoyangjilu?orderId=' + id.replace('[$$]BYJL', "") });
+      wx.navigateTo({ url: '../1baoyangjilu/1baoyangjilu?orderId=' + id.replace('[$$]BYJL', "") });
     } else if (id.indexOf("[$$]CXJL") > -1) {
       wx.navigateTo({ url: '../0chuxianjilu/0chuxianjilu?orderId=' + id.replace('[$$]CXJL', "") });
     } else if (id.indexOf("[$$]TBXX") > -1) {

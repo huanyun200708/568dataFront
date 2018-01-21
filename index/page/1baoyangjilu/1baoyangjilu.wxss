@@ -15,7 +15,7 @@
   border-right: 2px solid #ddd;  
 }  
 .th-2 {  
-  width: 75%;  
+  /* width: 75%;   */
   justify-content: center;  
   color: #fff;  
   display: flex;  
@@ -27,7 +27,7 @@
 .tr {  
   display: flex;  
   width: 100%;  
-  justify-content: center;  
+  /* justify-content: center;   */
   /* height: 1.2rem;   */
   align-items: center;  
 } 
@@ -43,14 +43,14 @@
     font-size: 0.7rem;
     padding:0.2rem;
     width:25%;  
-    justify-content: center;  
+    /* justify-content: center;   */
     display: flex;  
-    text-align: center;  
+    text-align: left;  
     height: 100%;  
 }  
 .td-2 {  
     font-size: 0.7rem;
-    width:75%;  
+    width:40%;  
     justify-content: center;  
     /* border-right: 2px solid #ddd;  
     border-left: 2px solid #ddd;   */
@@ -76,6 +76,7 @@
 }  
 .bg-g{  
   background: #E6F3F9;  
+  border-top: 1px solid #ddd; 
 }  
 .bg-g2{  
   background: #fff;  
