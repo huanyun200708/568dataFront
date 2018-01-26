@@ -1,10 +1,10 @@
 <view class="c-minheight wx-view_J608gI" data-c_e_id="wx_view_2f7bb806">
     <image class="wx-image_dqDS4l" data-c_e_id="wx_image_99de9a3a" mode="scaleToFill" src="http://qty83k.creatby.com/materials/origin/c8c2ff33dc27ef90e99fddf7cc895755_origin.png" style="background-size:  100% 100%; background-position:  0% 0%; background-repeat:  no-repeat; background-image: url(http://qty83k.creatby.com/materials/origin/c8c2ff33dc27ef90e99fddf7cc895755_origin.png); "/>
-    <text class="c-block wx-text_vO2Sg3" data-c_e_id="wx_text_e57a5933">普通会员：单次查询价格8元</text>
+    <text class="c-block wx-text_vO2Sg3" data-c_e_id="wx_text_e57a5933">普通会员：单次查询价格12元</text>
     <text class="c-block wx-text_Sczuxx" data-c_e_id="wx_text_c8969258">——————————————————————————————</text>
-    <text class="c-block wx-text_Y3FsuZ" data-c_e_id="wx_text_83023d80">中级会员：单次查询价格6元</text>
+    <text class="c-block wx-text_Y3FsuZ" data-c_e_id="wx_text_83023d80">中级会员：单次查询价格10元</text>
     <text class="c-block wx-text_Sczuxx" data-c_e_id="wx_textd17b4ccd">——————————————————————————————</text>
-    <text class="c-block wx-text_dTauwr" data-c_e_id="wx_text_d4e6b43d">高级会员：单次查询价格3元</text>
+    <text class="c-block wx-text_dTauwr" data-c_e_id="wx_text_d4e6b43d">高级会员：单次查询价格8元</text>
     <text class="c-block wx-text_Sczuxx" data-c_e_id="wx_textbedeb8ef">——————————————————————————————</text>
     <button class="wx-button_yvZTx8" catchtap="tap_ZJHY" data-c_act_id="M_ZJHY" data-c_e_id="wx_button_ZJHY"  hover-class="button-hover" size="default" type="primary">
         中级会员：{{Mprice}}/年
