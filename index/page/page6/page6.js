@@ -16,7 +16,7 @@ Page({
    */
 
   data: {
-    inputValue:"",
+    inputValue: "",
     licenseNo: "",
     frameNo: "",
     array: ['车架', '车牌'],
@@ -32,40 +32,76 @@ Page({
     ],
     index: 0
   },
-
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '快来分享领红包，手慢就没了',
+      imageUrl: 'https://51yangcong.com/568data/image/1.jpg',
+      path: 'page/page6/page6',
+      success: function (res) {
+        console.log(res.shareTickets[0])
+        // console.log
+        wx.getShareInfo({
+          shareTicket: res.shareTickets[0],
+          success: function (res) { console.log(res) },
+          fail: function (res) { console.log(res) },
+          complete: function (res) { console.log(res) }
+        })
+      },
+      fail: function (res) {
+        // 分享失败
+        console.log(res)
+      }
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad () {
+  onLoad() {
     // 注册coolsite360交互模块
     app.coolsite360.register(this);
+    wx.showShareMenu({
+      withShareTicket: true,
+      success: function (res) {
+        // 分享成功
+        console.log('shareMenu share success')
+        console.log('分享' + res)
+      },
+      fail: function (res) {
+        // 分享失败
+        console.log(res)
+      }
+    })
   },
   bindKeyInput: function (e) {
-    if(this.data.index == 0){
+    if (this.data.index == 0) {
       this.setData({
         inputValue: e.detail.value,
         frameNo: e.detail.value
       })
-    }else{
+    } else {
       this.setData({
         inputValue: e.detail.value,
         licenseNo: e.detail.value
       })
     }
-    
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady () {
+  onReady() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow () {
+  onShow() {
     // 执行coolsite360交互组件展示
     app.coolsite360.onShow(this);
   },
@@ -73,22 +109,22 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide () {
+  onHide() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload () {
+  onUnload() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh () {
-    
+  onPullDownRefresh() {
+
   },
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -98,36 +134,36 @@ Page({
   },
 
   //以下为自定义点击事件
-  
-  tap_bafd41db:function(e){
+
+  tap_bafd41db: function (e) {
     //触发coolsite360交互事件
-    app.coolsite360.fireEvent(e,this);
+    app.coolsite360.fireEvent(e, this);
   },
   //投保查询
-  tap_7a42cdda:function(e){
+  tap_7a42cdda: function (e) {
     //触发coolsite360交互事件
-    app.coolsite360.fireEvent(e,this);
+    app.coolsite360.fireEvent(e, this);
   },
   //状态查询
-  tap_a51bae1f:function(e){
+  tap_a51bae1f: function (e) {
     //触发coolsite360交互事件
-    app.coolsite360.fireEvent(e,this);
+    app.coolsite360.fireEvent(e, this);
   },
-  
-  tap_483ab025:function(e){
+
+  tap_483ab025: function (e) {
     //触发coolsite360交互事件
-    app.coolsite360.fireEvent(e,this);
+    app.coolsite360.fireEvent(e, this);
   },
   //出险查询
-  tap_4f1610c5:function(e){
+  tap_4f1610c5: function (e) {
     //触发coolsite360交互事件
-    app.coolsite360.fireEvent(e,this);
+    app.coolsite360.fireEvent(e, this);
   },
   //维保查询
   tap_WBJL: function (e) {
     //触发coolsite360交互事件
     app.coolsite360.fireEvent(e, this);
   }
-  
+
 })
 
