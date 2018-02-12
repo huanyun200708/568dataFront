@@ -1,19 +1,37 @@
 var coolsite360 = require('./coolsite/index.js');
 var user;
 App({
+  data: {
+    userOpenId: ""
+  },
   onLaunch: function (options) {
-    wx.showModal({
-      title: '提示',
-      content: options.shareTicket,
+    var that = this;
+    console.log(options);
+    wx.showLoading({ title: '' });
+    wx.login({
       success: function (res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
+        wx.request({
+           url: 'https://51yangcong.com/568data/GetOpenId',
+        // url: 'http://localhost:8880/568data/GetOpenId',
+          method: 'POST',
+          header: {
+            'content-type': 'application/x-www-form-urlencoded'
+          },
+          data: {
+            'code': res.code
+          },
+          success: function success(res) {
+            getApp().data.userOpenId = res.data.openid;
+            wx.hideLoading();
+            //查询是否有需要展示的信息，如果有则跳转去信息页面展示
+          },
+          'fail': function (res) {
+            wx.reLaunch({ url: '../../page/messagePage/messagePage' });
+            wx.hideLoading();//////////////////////////////////////////////
+          }
+        });
       }
-    })
-    console.log(options)
+    });
   },
   coolsite360: coolsite360
 })

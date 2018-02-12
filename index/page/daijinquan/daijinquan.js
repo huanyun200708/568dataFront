@@ -10,15 +10,13 @@ Page({
   /**
    * 页面名称
    */
-  name: "page3",
+  name: "daijinquan",
   /**
    * 页面的初始数据
    */
 
   data: {
-    
-  
-  
+    daijinquanList:[]
   },
   onShareAppMessage: function (res) {
     wx.showLoading({ title: '' });
@@ -105,8 +103,36 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow () {
-    // 执行coolsite360交互组件展示
-    app.coolsite360.onShow(this);
+    wx.showLoading({ title: '查询中' });//////////////////////////////////////
+    var that = this;
+    wx.login({
+      success: function (res) {
+        wx.request({
+         //url: 'https://51yangcong.com/568data/getDaijinquansByOpenId_daijinquan.do',
+          url: 'http://aqvwkm.natappfree.cc/568data/getDaijinquansByOpenId_daijinquan.do',
+          method: 'POST',
+          header: {
+            'content-type': 'application/x-www-form-urlencoded'
+          },
+          data: {
+            'openId': getApp().data.userOpenId
+          },
+          success: function success(res) {
+            wx.hideLoading();//////////////////////////////////////////////
+            console.log(res.data)
+            var o = res.data;
+            if (o != null) {
+              that.setData({ daijinquanList: o });
+            }
+            wx.hideLoading();//////////////////////////////////////////////
+            return;
+          },
+          'fail': function (res) {
+            wx.hideLoading();//////////////////////////////////////////////
+          }
+        });
+      }
+    });
   },
 
   /**
@@ -132,6 +158,10 @@ Page({
 
 
   //以下为自定义点击事件
-  
+  tap_DJQ: function (e) {
+    var voucher_code = e.currentTarget.id;
+    //wx.navigateTo({ url: '/page/page6/page6?voucher_code='});
+    wx.reLaunch({ url: '../../page/page6/page6' });
+  }
 })
 

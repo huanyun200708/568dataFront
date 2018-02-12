@@ -27,7 +27,20 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "local",
+					"pathName": "page/page6/page6",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "local",
+					"pathName": "page/daijinquan/daijinquan",
+					"query": ""
+				}
+			]
 		}
 	}
 }

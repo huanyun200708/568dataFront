@@ -16,6 +16,7 @@ Page({
    */
 
   data: {
+    fromOpenId:"",
     inputValue: "",
     licenseNo: "",
     frameNo: "",
@@ -33,23 +34,51 @@ Page({
     index: 0
   },
   onShareAppMessage: function (res) {
+    wx.showLoading({ title: '' });
     if (res.from === 'button') {
       // 来自页面内转发按钮
       console.log(res.target)
     }
+    var now = new Date();
+    var voucher_code = getApp().data.userOpenId +'_'+now.getTime()+Math.round(Math.random() * 10000);
     return {
       title: '快来分享领红包，手慢就没了',
       imageUrl: 'https://51yangcong.com/568data/image/1.jpg',
-      path: 'page/page6/page6',
+      path: 'page/page6/page6?from=' + getApp().data.userOpenId + "&voucher_code=" + voucher_code,
       success: function (res) {
-        console.log(res.shareTickets[0])
-        // console.log
-        wx.getShareInfo({
-          shareTicket: res.shareTickets[0],
-          success: function (res) { console.log(res) },
-          fail: function (res) { console.log(res) },
-          complete: function (res) { console.log(res) }
-        })
+        wx.request({
+          //url: 'https://51yangcong.com/568data/QueryOrder',
+          url: 'http://aqvwkm.natappfree.cc/568data/shareDaijinquan_daijinquan.do',
+          method: 'POST',
+          header: {
+            'content-type': 'application/x-www-form-urlencoded'
+          },
+          data: {
+            'openId': getApp().data.userOpenId,
+            voucher_code: voucher_code
+          },
+          success: function success(res) {
+            console.log(res.data)
+            var o = res.data;
+            if (o.success) {
+              console.log("转发成功")
+            }
+            wx.hideLoading();//////////////////////////////////////////////
+          },
+          'fail': function (res) {
+            wx.hideLoading();//////////////////////////////////////////////
+          }
+        });
+        // console.log(res.shareTickets[0])
+        // wx.getShareInfo({
+        //   shareTicket: res.shareTickets[0],
+        //   success: function (res) { 
+        //     console.log("已转发 来自openid:" + getApp().data.userOpenId);
+        //     console.log(res)
+        //      },
+        //   fail: function (res) { console.log(res) },
+        //   complete: function (res) { console.log(res) }
+        // })
       },
       fail: function (res) {
         // 分享失败
@@ -60,7 +89,36 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad() {
+  onLoad(res) {
+    console.log('deng lu cheng gong');
+    console.log(res);
+    if (res.from != null && res.from != "" && res.voucher_code != null && res.voucher_code != ""){
+      wx.request({
+        //url: 'https://51yangcong.com/568data/QueryOrder',
+        url: 'http://aqvwkm.natappfree.cc/568data/acceptShareDaijinquan_daijinquan.do',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        data: {
+          'fromopenId': res.from,
+          'toopenId': getApp().data.userOpenId,
+          voucher_code: res.voucher_code
+        },
+        success: function success(res) {
+          console.log(res.data)
+          var o = res.data;
+          if (o.success) {
+            console.log("接受转发成功")
+          }
+          wx.hideLoading();//////////////////////////////////////////////
+        },
+        'fail': function (res) {
+          wx.hideLoading();//////////////////////////////////////////////
+        }
+      });
+    }
+  
     // 注册coolsite360交互模块
     app.coolsite360.register(this);
     wx.showShareMenu({
@@ -95,7 +153,29 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-
+    // if (getApp().data.userOpenId == null || getApp().data.userOpenId == "") {
+    //   wx.showLoading({ title: '' });
+    //   wx.login({
+    //     success: function (res) {
+    //       wx.request({
+    //         url: 'https://51yangcong.com/568data/GetOpenId',
+    //         //url: 'http://localhost:8880/568data/GetOpenId',
+    //         method: 'POST',
+    //         header: {
+    //           'content-type': 'application/x-www-form-urlencoded'
+    //         },
+    //         data: {
+    //           'code': res.code
+    //         },
+    //         success: function success(res) {
+    //           getApp().data.userOpenId = res.data.openid;
+    //           wx.hideLoading();
+    //         }
+    //       });
+    //     }
+    //   });
+    // }
+    console.log("openid:" + getApp().data.userOpenId);
   },
 
   /**

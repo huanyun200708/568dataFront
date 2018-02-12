@@ -4,7 +4,7 @@ page {
 .b1{position:fixed;width:100%;height:100%;top:0px;background:rgba(0,0,0,0.4);overflow: hidden;z-index:1000;} 
 .t_w{position:relative;} 
 .b2{width: 90%;margin:35% auto;overflow: hidden;background-color: #fff;border-radius: 10rpx;} 
-.v1{margin:110rpx auto 30rpx auto;color:#999;font-size:28rpx;background-color: #fff;padding:0rpx 30rpx;text-align: center;} 
+.v1{margin:150rpx auto 30rpx auto;color:#999;font-size:28rpx;background-color: #fff;padding:0rpx 40rpx;text-align: center;} 
 .v2{background-color: #ff0000;padding:20rpx 0rpx;text-align: center;overflow: hidden;} 
 .v3{background-color: deepskyblue;padding:20rpx 0rpx;text-align: center;overflow: hidden;} 
 .p1{display: block;margin:10rpx auto;font-size: 34rpx;height:34rpx;line-height:34rpx;color: #ffffff;} 

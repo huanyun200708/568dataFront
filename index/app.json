@@ -9,12 +9,14 @@
     "backgroundTextStyle": "dark"
   },
   "pages": [
-      
+
     "page/page6/page6",
+    "page/messagePage/messagePage",
     "page/page2/page2",
     "page/page1/page1",
     "page/page3/page3",
     "page/lianxiwomen/lianxiwomen",
+    "page/daijinquan/daijinquan",
     "page/page4/page4",
     "page/page5/page5",
     "page/page7/page7",
@@ -23,7 +25,7 @@
     "page/0chuxianchaxun/0chuxianchaxun",
     "page/0cheliangzhuangtai/0cheliangzhuangtai",
     "page/1baoyangjilu/1baoyangjilu",
- "page/0chuxianjilu/0chuxianjilu",
+    "page/0chuxianjilu/0chuxianjilu",
     "page/0toubaoxinxi/0toubaoxinxi"
   ],
   "tabBar": {

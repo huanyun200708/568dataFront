@@ -1,6 +1,22 @@
 
 var actions = [
   {
+    "element_id": "wx_button_daijinquan",
+    "data": {
+      "args": {
+        "url": "../daijinquan/daijinquan",
+        "a_ids": [],
+        "e_ids": [],
+        "open_type": "navigate",
+        "st": 1
+      },
+      "type": 0,
+      "exec": 5
+    },
+    "id": "M_daijinquan",
+    "isNew": true
+  },
+  {
     "element_id": "wx_button_65bbe39e", 
     "data": {
       "args": {
