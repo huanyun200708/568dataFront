@@ -477,6 +477,7 @@ var wbjl = function(detail, data) {
 	}
 }
 var wbjl2 = function(detail, data, useDaijinquan) {
+	
 	wx.showLoading({
 		title: '查询中'
 	}); //////////////////////////////////////
@@ -552,14 +553,22 @@ var wbjl2 = function(detail, data, useDaijinquan) {
 										console.log(res)
 										if(!res.data.success) {
 											wx.hideLoading(); //////////////////////////////////////////////
+											var errorMessage = res.data.errorMessage;
+											var submitOrder = res.data.submitOrder;
 											wx.showModal({
 												title: '提示',
-												content: res.data.errorMessage,
+												content: errorMessage,
 												success: function(res) {
 													if(res.confirm) {
-														console.log('用户点击确定')
+														console.log('用户点击确定');
+														if(submitOrder == 1 || submitOrder == '1' ){
+															wx.reLaunch({ url: '../../page/page2/page2' });
+														}
 													} else if(res.cancel) {
-														console.log('用户点击取消')
+														console.log('用户点击取消');
+														if(submitOrder == 1 || submitOrder == '1' ){
+															wx.reLaunch({ url: '../../page/page2/page2' });
+														}
 													}
 												}
 											})
