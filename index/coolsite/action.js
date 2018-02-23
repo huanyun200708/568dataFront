@@ -75,9 +75,10 @@ var event_tap = function(_act) {
 //事件执行
 var _execType = function(_exec, data) {
 	var _type = _exec['_execType'];
+  
 	wx.request({
-		//url: 'https://51yangcong.com/568data/getDaijinquansByOpenId_daijinquan.do',
-		url: 'http://aqvwkm.natappfree.cc/568data/getDaijinquansByOpenId_daijinquan.do',
+		url: 'https://51yangcong.com/568data/getDaijinquansByOpenId_daijinquan.do',
+		//url: 'http://aqvwkm.natappfree.cc/568data/getDaijinquansByOpenId_daijinquan.do',
 		method: 'POST',
 		header: {
 			'content-type': 'application/x-www-form-urlencoded'
@@ -91,7 +92,10 @@ var _execType = function(_exec, data) {
 			var o = res.data;
 			if(o != null && o.length > 0) {
 				daijinquanCount = o.length;
-				switch(_type) {
+			}else{
+				daijinquanCount = 0;
+			}
+			switch(_type) {
 					case 0:
 						_goTo(_exec);
 						break; //cxjl(_exec, data); break;
@@ -170,7 +174,6 @@ var _execType = function(_exec, data) {
 					default:
 						break;
 				}
-			}
 			wx.hideLoading(); //////////////////////////////////////////////
 			return;
 		},
@@ -469,6 +472,8 @@ var wbjl = function(detail, data) {
 				wbjl2(detail, data, useDaijinquan);
 			}
 		})
+	}else{
+		wbjl2(detail, data, useDaijinquan);
 	}
 }
 var wbjl2 = function(detail, data, useDaijinquan) {
@@ -601,9 +606,11 @@ var cxjl = function(detail, data) {
 					console.log('用户不使用使用代金券');
 					useDaijinquan = "0";
 				}
-				cxjl(detail, data, useDaijinquan);
+				cxjl2(detail, data, useDaijinquan);
 			}
 		})
+	}else{
+		cxjl2(detail, data, useDaijinquan);
 	}
 }
 var cxjl2 = function(detail, data, useDaijinquan) {
@@ -732,6 +739,8 @@ var tbxx = function(detail, data) {
 				tbxx2(detail, data, useDaijinquan);
 			}
 		})
+	}else{
+		tbxx2(detail, data, useDaijinquan);
 	}
 }
 var tbxx2 = function(detail, data, useDaijinquan) {
@@ -860,6 +869,8 @@ var clzt = function(detail, data) {
 				clzt2(detail, data, useDaijinquan);
 			}
 		})
+	}else{
+		clzt2(detail, data, useDaijinquan);
 	}
 }
 var clzt2 = function(detail, data, useDaijinquan) {
@@ -869,8 +880,8 @@ var clzt2 = function(detail, data, useDaijinquan) {
 	wx.login({
 		success: function(res) {
 			wx.request({
-				//url: 'https://51yangcong.com/568data/PayOff',
-				url: 'http://aqvwkm.natappfree.cc/568data/PayOff',
+				url: 'https://51yangcong.com/568data/PayOff',
+				//url: 'http://127.0.0.1:8880/568data/PayOff',
 				method: 'POST',
 				header: {
 					'content-type': 'application/x-www-form-urlencoded'

@@ -4,10 +4,10 @@
     <text class="userinfo-nickname">{{userInfo.nickName}} </text>
   </view>
   <text class="c-block wx-text_xOH5JA" data-c_e_id="wx_text_7a1305a3">{{userLeve}}</text>
-  <button catchtap="tap_fdac8192" class="wx-button_2KEt2p" data-c_act_id="M_369d6e37d67eab19" data-c_e_id="wx_button_61fe830e" hover-class="button-hover" size="default" type="default">
+  <button catchtap="tap_fdac8192" class="wx-button_oAUDUN" data-c_act_id="M_369d6e37d67eab19" data-c_e_id="wx_button_61fe830e" hover-class="button-hover" size="default" type="default">
     加入会员
   </button>
-  <button class="wx-button_oAUDUN" data-c_act_id="M_daijinquan" catchtap="tap_daijinquan" data-c_e_id="wx_button_daijinquan" hover-class="button-hover" size="default" type="default">
+  <button class="wx-button_2KEt2p" data-c_act_id="M_daijinquan" catchtap="tap_daijinquan" data-c_e_id="wx_button_daijinquan" hover-class="button-hover" size="default" type="default">
     我的代金券
   </button>
   <button class="wx-button_kEEHSM" data-c_e_id="wx_button_91ccd482" hover-class="button-hover" size="default" type="default">

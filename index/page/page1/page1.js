@@ -35,8 +35,7 @@ Page({
 			path: 'page/page6/page6?from=' + getApp().data.userOpenId + "&voucher_code=" + voucher_code,
 			success: function(res) {
 				wx.request({
-					//url: 'https://51yangcong.com/568data/QueryOrder',
-					url: 'http://aqvwkm.natappfree.cc/568data/shareDaijinquan_daijinquan.do',
+					url: 'https://51yangcong.com/568data/shareDaijinquan_daijinquan.do',
 					method: 'POST',
 					header: {
 						'content-type': 'application/x-www-form-urlencoded'

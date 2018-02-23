@@ -16,7 +16,7 @@ Page({
    */
 
   data: {
-    fromOpenId:"",
+    fromOpenId: "",
     inputValue: "",
     licenseNo: "",
     frameNo: "",
@@ -40,15 +40,14 @@ Page({
       console.log(res.target)
     }
     var now = new Date();
-    var voucher_code = getApp().data.userOpenId +'_'+now.getTime()+Math.round(Math.random() * 10000);
+    var voucher_code = getApp().data.userOpenId + '_' + now.getTime() + Math.round(Math.random() * 10000);
     return {
       title: '快来分享领红包，手慢就没了',
       imageUrl: 'https://51yangcong.com/568data/image/1.jpg',
       path: 'page/page6/page6?from=' + getApp().data.userOpenId + "&voucher_code=" + voucher_code,
       success: function (res) {
         wx.request({
-          //url: 'https://51yangcong.com/568data/QueryOrder',
-          url: 'http://aqvwkm.natappfree.cc/568data/shareDaijinquan_daijinquan.do',
+          url: 'https://51yangcong.com/568data/shareDaijinquan_daijinquan.do',
           method: 'POST',
           header: {
             'content-type': 'application/x-www-form-urlencoded'
@@ -92,33 +91,86 @@ Page({
   onLoad(res) {
     console.log('deng lu cheng gong');
     console.log(res);
-    if (res.from != null && res.from != "" && res.voucher_code != null && res.voucher_code != ""){
-      wx.request({
-        //url: 'https://51yangcong.com/568data/QueryOrder',
-        url: 'http://aqvwkm.natappfree.cc/568data/acceptShareDaijinquan_daijinquan.do',
-        method: 'POST',
-        header: {
-          'content-type': 'application/x-www-form-urlencoded'
-        },
-        data: {
-          'fromopenId': res.from,
-          'toopenId': getApp().data.userOpenId,
-          voucher_code: res.voucher_code
-        },
-        success: function success(res) {
-          console.log(res.data)
-          var o = res.data;
-          if (o.success) {
-            console.log("接受转发成功")
+    if (res.from != null && res.from != "" && res.voucher_code != null && res.voucher_code != "") {
+      if (getApp().data.userOpenId == '' || getApp().data.userOpenId == null) {
+        var voucher_code = res.voucher_code;
+        var _from = res.from;
+        console.log("获得openid失败");
+        wx.login({
+          success: function (res) {
+            wx.request({
+              url: 'https://51yangcong.com/568data/GetOpenId',
+              method: 'POST',
+              header: {
+                'content-type': 'application/x-www-form-urlencoded'
+              },
+              data: {
+                'code': res.code
+              },
+              success: function success(res) {
+                getApp().data.userOpenId = res.data.openid;
+                var openid = res.data.openid;
+                console.log("接受转发消息，重新获得openid:" + openid);
+                wx.request({
+                  url: 'https://51yangcong.com/568data/acceptShareDaijinquan_daijinquan.do',
+                  method: 'POST',
+                  header: {
+                    'content-type': 'application/x-www-form-urlencoded'
+                  },
+                  data: {
+                    'fromopenId': _from,
+                    'toopenId': openid,
+                    voucher_code: voucher_code
+                  },
+                  success: function success(res) {
+                    console.log(res.data)
+                    var o = res.data;
+                    if (o.success) {
+                      console.log("接受转发成功")
+                    }
+                    wx.hideLoading();//////////////////////////////////////////////
+                  },
+                  'fail': function (res) {
+                    wx.hideLoading();//////////////////////////////////////////////
+                  }
+                });
+              },
+              'fail': function (res) {
+                wx.reLaunch({ url: '../../page/messagePage/messagePage' });
+                wx.hideLoading();//////////////////////////////////////////////
+              }
+            });
           }
-          wx.hideLoading();//////////////////////////////////////////////
-        },
-        'fail': function (res) {
-          wx.hideLoading();//////////////////////////////////////////////
-        }
-      });
+        });
+      } else {
+        console.log("获得openid成功");
+        wx.request({
+          url: 'https://51yangcong.com/568data/acceptShareDaijinquan_daijinquan.do',
+          method: 'POST',
+          header: {
+            'content-type': 'application/x-www-form-urlencoded'
+          },
+          data: {
+            'fromopenId': res.from,
+            'toopenId': getApp().data.userOpenId,
+            voucher_code: res.voucher_code
+          },
+          success: function success(res) {
+            console.log(res.data)
+            var o = res.data;
+            if (o.success) {
+              console.log("接受转发成功")
+            }
+            wx.hideLoading();//////////////////////////////////////////////
+          },
+          'fail': function (res) {
+            wx.hideLoading();//////////////////////////////////////////////
+          }
+        });
+      }
+
     }
-  
+
     // 注册coolsite360交互模块
     app.coolsite360.register(this);
     wx.showShareMenu({

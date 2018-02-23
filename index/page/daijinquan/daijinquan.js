@@ -32,8 +32,8 @@ Page({
       path: 'page/page6/page6?from=' + getApp().data.userOpenId + "&voucher_code=" + voucher_code,
       success: function (res) {
         wx.request({
-          //url: 'https://51yangcong.com/568data/QueryOrder',
-          url: 'http://aqvwkm.natappfree.cc/568data/shareDaijinquan_daijinquan.do',
+          url: 'https://51yangcong.com/568data/shareDaijinquan_daijinquan.do',
+          //url: 'http://aqvwkm.natappfree.cc/568data/shareDaijinquan_daijinquan.do',
           method: 'POST',
           header: {
             'content-type': 'application/x-www-form-urlencoded'
@@ -108,8 +108,8 @@ Page({
     wx.login({
       success: function (res) {
         wx.request({
-         //url: 'https://51yangcong.com/568data/getDaijinquansByOpenId_daijinquan.do',
-          url: 'http://aqvwkm.natappfree.cc/568data/getDaijinquansByOpenId_daijinquan.do',
+        url: 'https://51yangcong.com/568data/getDaijinquansByOpenId_daijinquan.do',
+          // url: 'http://aqvwkm.natappfree.cc/568data/getDaijinquansByOpenId_daijinquan.do',
           method: 'POST',
           header: {
             'content-type': 'application/x-www-form-urlencoded'
@@ -153,7 +153,39 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh () {
-    
+    wx.stopPullDownRefresh();
+    wx.showLoading({ title: '查询中' });//////////////////////////////////////
+    var that = this;
+    wx.login({
+      success: function (res) {
+        wx.request({
+          url: 'https://51yangcong.com/568data/getDaijinquansByOpenId_daijinquan.do',
+          // url: 'http://aqvwkm.natappfree.cc/568data/getDaijinquansByOpenId_daijinquan.do',
+          method: 'POST',
+          header: {
+            'content-type': 'application/x-www-form-urlencoded'
+          },
+          data: {
+            'openId': getApp().data.userOpenId
+          },
+          success: function success(res) {
+            wx.hideLoading();//////////////////////////////////////////////
+            console.log(res.data)
+            var o = res.data;
+            if (o != null) {
+              that.setData({ daijinquanList: o });
+            }
+            wx.stopPullDownRefresh();
+            wx.hideLoading();//////////////////////////////////////////////
+            return;
+          },
+          'fail': function (res) {
+            wx.stopPullDownRefresh();
+            wx.hideLoading();//////////////////////////////////////////////
+          }
+        });
+      }
+    });
   },
 
 
