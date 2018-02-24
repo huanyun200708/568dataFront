@@ -192,13 +192,13 @@ Page({
 		if(globalpos != pos || pos == null) {
 			globalpos = pos;
 			this.setData({
-				number1: value.toUpperCase()
+				number1: value.toUpperCase().replace(" ","")
 			})
-			console.log(value.toUpperCase())
-			return value.toUpperCase();
+			console.log(value.toUpperCase().replace(" ",""))
+			return value.toUpperCase().replace(" ","");
 		} else if(globalpos == pos) {
 			this.setData({
-				number1: value.toUpperCase()
+				number1: value.toUpperCase().replace(" ","")
 			})
 		}
 

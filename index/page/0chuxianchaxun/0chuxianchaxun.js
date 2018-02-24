@@ -156,15 +156,15 @@ Page({
     if (globalpos != pos || pos == null) {
       globalpos = pos;
       this.setData({
-        inputValue: e.detail.value,
-        licenseNo: value.toUpperCase()
+        inputValue: e.detail.value.replace(" ",""),
+        licenseNo: value.toUpperCase().replace(" ","")
       })
-      console.log(value.toUpperCase())
-      return value.toUpperCase();
+      console.log(value.toUpperCase().replace(" ",""))
+      return value.toUpperCase().replace(" ","");
     } else if (globalpos == pos) {
       this.setData({
-        inputValue: e.detail.value,
-        licenseNo: value.toUpperCase()
+        inputValue: e.detail.value.replace(" ",""),
+        licenseNo: value.toUpperCase().replace(" ","")
       })
     }
   },
@@ -175,15 +175,15 @@ Page({
     if (globalpos1 != pos || pos == null) {
       globalpos1 = pos;
       this.setData({
-        inputValue1: e.detail.value,
-        frameNo: value.toUpperCase()
+        inputValue1: e.detail.value.replace(" ",""),
+        frameNo: value.toUpperCase().replace(" ","")
       })
-      console.log(value.toUpperCase())
-      return value.toUpperCase();
+      console.log(value.toUpperCase().replace(" ",""))
+      return value.toUpperCase().replace(" ","");
     } else if (globalpos1 == pos) {
       this.setData({
-        inputValue1: e.detail.value,
-        frameNo: value.toUpperCase()
+        inputValue1: e.detail.value.replace(" ",""),
+        frameNo: value.toUpperCase().replace(" ","")
       })
     }
   },

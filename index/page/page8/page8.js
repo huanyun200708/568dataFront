@@ -116,13 +116,13 @@ Page({
 		if(globalpos1 != pos || pos == null) {
 			globalpos1 = pos;
 			this.setData({
-				licenseNo: value.toUpperCase()
+				licenseNo: value.toUpperCase().replace(" ","")
 			})
-			console.log(value.toUpperCase())
-			return value.toUpperCase();
+			console.log(value.toUpperCase().replace(" ",""))
+			return value.toUpperCase().replace(" ","");
 		} else if(globalpos1 == pos) {
 			this.setData({
-				licenseNo: value.toUpperCase()
+				licenseNo: value.toUpperCase().replace(" ","")
 			})
 		}
 	},
@@ -133,13 +133,13 @@ Page({
 		if(globalpos2 != pos || pos == null) {
 			globalpos2 = pos;
 			this.setData({
-				carVin: value.toUpperCase()
+				carVin: value.toUpperCase().replace(" ","")
 			})
-			console.log(value.toUpperCase())
-			return value.toUpperCase();
+			console.log(value.toUpperCase().replace(" ",""))
+			return value.toUpperCase().replace(" ","");
 		} else if(globalpos2 == pos) {
 			this.setData({
-				carVin: value.toUpperCase()
+				carVin: value.toUpperCase().replace(" ","")
 			})
 		}
 	},
@@ -150,13 +150,13 @@ Page({
 		if(globalpos3 != pos || pos == null) {
 			globalpos3 = pos;
 			this.setData({
-				engineNo: value.toUpperCase()
+				engineNo: value.toUpperCase().replace(" ","")
 			})
-			console.log(value.toUpperCase())
-			return value.toUpperCase();
+			console.log(value.toUpperCase().replace(" ",""))
+			return value.toUpperCase().replace(" ","");
 		} else if(globalpos3 == pos) {
 			this.setData({
-				engineNo: value.toUpperCase()
+				engineNo: value.toUpperCase().replace(" ","")
 			})
 		}
 	},

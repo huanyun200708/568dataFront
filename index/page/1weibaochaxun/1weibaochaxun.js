@@ -100,13 +100,13 @@ Page({
     if (globalpos != pos || pos==null) {
       globalpos = pos;
       this.setData({
-        vin: value.toUpperCase()
+        vin: value.toUpperCase().replace(" ","")
       })
-      console.log(value.toUpperCase())
-      return value.toUpperCase();
+      console.log(value.toUpperCase().replace(" ",""))
+      return value.toUpperCase().replace(" ","");
     } else if (globalpos == pos){
       this.setData({
-        vin: value.toUpperCase()
+        vin: value.toUpperCase().replace(" ","")
       })
     }
   },
@@ -118,13 +118,13 @@ Page({
     if (globalpos != pos || pos == null) {
       globalpos = pos;
       this.setData({
-        enginno: value.toUpperCase()
+        enginno: value.toUpperCase().replace(" ","")
       })
-      console.log(value.toUpperCase())
-      return value.toUpperCase();
+      console.log(value.toUpperCase().replace(" ",""))
+      return value.toUpperCase().replace(" ","");
     } else if (globalpos == pos) {
       this.setData({
-        enginno: value.toUpperCase()
+        enginno: value.toUpperCase().replace(" ","")
       })
     }
   },
@@ -136,13 +136,13 @@ Page({
     if (globalpos != pos || pos == null) {
       globalpos = pos;
       this.setData({
-        licenseplate: value.toUpperCase()
+        licenseplate: value.toUpperCase().replace(" ","")
       })
-      console.log(value.toUpperCase())
-      return value.toUpperCase();
+      console.log(value.toUpperCase().replace(" ",""))
+      return value.toUpperCase().replace(" ","");
     } else if (globalpos == pos) {
       this.setData({
-        licenseplate: value.toUpperCase()
+        licenseplate: value.toUpperCase().replace(" ","")
       })
     }
   },
