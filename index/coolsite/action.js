@@ -530,8 +530,9 @@ var wbjl2 = function(detail, data, useDaijinquan) {
 						'signType': obj.signType,
 						'paySign': obj.paySign,
 						'success': function(res) {
+              wx.hideLoading(); //////////////////////////////////////////////
 							wx.showLoading({
-								title: '查询中'
+								title: '支付结果确认中'
 							}); //////////////////////////////////////
 							console.log(res)
 							if(res.errMsg == "requestPayment:ok") {
@@ -583,7 +584,20 @@ var wbjl2 = function(detail, data, useDaijinquan) {
 										wx.hideLoading(); //////////////////////////////////////////////
 									}
 								});
-							}
+							}else{
+                wx.hideLoading(); //////////////////////////////////////////////
+                wx.showModal({
+                  title: '提示',
+                  content: '支付失败，如果已经扣款，请联系客服处理',
+                  success: function (res) {
+                    if (res.confirm) {
+                      
+                    } else if (res.cancel) {
+                      
+                    }
+                  }
+                })
+              }
 							//wx.hideLoading();//////////////////////////////////////////////
 						},
 						'fail': function(res) {
