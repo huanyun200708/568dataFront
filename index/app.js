@@ -1,8 +1,13 @@
 var coolsite360 = require('./coolsite/index.js');
+var  aldstat = require("./utils/ald-stat.js");
+var push = require('./utils/pushsdk.js');
 var user;
 App({
   data: {
-    userOpenId: ""
+    userOpenId: "",
+    lastExecType: "",
+    lastExecType: "",
+    lastExecTime :0
   },
   onLaunch: function (options) {
     var that = this;

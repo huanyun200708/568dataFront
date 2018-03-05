@@ -1,3 +1,5 @@
+<import src="../template/template.wxml" />
+<template wx:if="{{!is_showHideBtn}}" is='hideBtn' data='{{hideBtnData}}'></template>
 <!--0toubaoxinxi.wxml-->
 <view class="table">
   <view class="tr bg-g">

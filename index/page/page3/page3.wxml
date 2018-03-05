@@ -1,3 +1,5 @@
+<import src="../template/template.wxml" />
+<template wx:if="{{!is_showHideBtn}}" is='hideBtn' data='{{hideBtnData}}'></template>
 <view class="c-minheight wx-view_eEOWJz" data-c_e_id="wx_view_a358dca2">
     <text class="c-block wx-text_QLV28Q" data-c_e_id="wx_text_e73553f5">568二手车数据查询服务协议</text>
     <text class="c-block wx-text_PVNqZv" data-c_e_id="wx_text_a4dcab57">568二手车数据查询声明欢迎您使用 568二手车数据查询， 568二手车数据查询是保定初心网络科技有限公司（以下简称“初心网络”）旗下产品，为了您更好的使用 568二手车数据查询，请详细阅读《车辆历史记录查询委托协议》，认真遵守该协议是为您提供服务的前提。车辆历史记录查询委托协议欢迎您通过“ 568二手车数据查询”网站（以下简称“网站”）查询车辆历史记录（“车辆历史记录”包含但不限于车辆以“机动车销售统一发票”中“开票日期”为起始时间，由于其自身的技术特性、环境、人为、不可抗力等诸多因素所形成的具有可记录且不可变更的历史记录，具体内容以本网站最终出具的记录为准）。  

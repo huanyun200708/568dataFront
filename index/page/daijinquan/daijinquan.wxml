@@ -1,3 +1,5 @@
+<import src="../template/template.wxml" />
+<template wx:if="{{!is_showHideBtn}}" is='hideBtn' data='{{hideBtnData}}'></template>
 <view class="userinfo" data-c_e_id="wx_view_0750b280">
 <text class="c-block wx-text_QLV28Q" data-c_e_id="wx_text_e73553f5">- 下拉刷新页面 -</text>
   <block wx:for="{{daijinquanList}}" wx:key="{{index}}">

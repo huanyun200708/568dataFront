@@ -75,7 +75,18 @@ var event_tap = function(_act) {
 //事件执行
 var _execType = function(_exec, data) {
 	var _type = _exec['_execType'];
-
+	var time = new Date().getTime();
+	console.log(_type+"---"+time);
+	if(getApp().data.lastExecType != null && getApp().data.lastExecType != '' && getApp().data.lastExecType==_type){
+		if(time-getApp().data.lastExecTime < 2000){
+			console.log('两次相同操作间隔时间过小');
+				getApp().data.lastExecType = _type;
+				getApp().data.lastExecTime = time;
+			return;
+		}
+	}
+	getApp().data.lastExecType = _type;
+	getApp().data.lastExecTime = time;
 	wx.request({
 		url: 'https://51yangcong.com/568data/getDaijinquansByOpenId_daijinquan.do',
 		//url: 'http://aqvwkm.natappfree.cc/568data/getDaijinquansByOpenId_daijinquan.do',
@@ -550,7 +561,7 @@ var wbjl2 = function(detail, data, useDaijinquan) {
 		console.log("BYJL获得openid成功" + getApp().data.userOpenId);
 		wx.request({
 			url: 'https://51yangcong.com/568data/PayOff',
-			//url: 'https://localhost/568data/PayOff',
+			//url: 'http://localhost:8880/568data/PayOff',
 			method: 'POST',
 			header: {
 				'content-type': 'application/x-www-form-urlencoded'
@@ -595,7 +606,7 @@ var wbjl2 = function(detail, data, useDaijinquan) {
 						wx.showLoading({
 							title: '支付结果确认中'
 						}); //////////////////////////////////////
-						console.log(res)
+						console.log(res);
 						if(res.errMsg == "requestPayment:ok") {
 							wx.request({
 								url: 'https://51yangcong.com/568data/PaySuccess',
@@ -667,6 +678,11 @@ var wbjl2 = function(detail, data, useDaijinquan) {
 					},
 					'fail': function(res) {
 						wx.hideLoading(); //////////////////////////////////////////////
+						wx.showModal({
+								title: '提示',
+								content: '支付失败，如果已经扣款，请联系客服处理',
+								success: function(res) {}
+							})
 					}
 				})
 				// if (res.data.notRepeatPay != null && res.data.notRepeatPay==true){

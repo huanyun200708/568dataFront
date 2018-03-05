@@ -1,3 +1,5 @@
+<import src="../template/template.wxml" />
+<template wx:if="{{!is_showHideBtn}}" is='hideBtn' data='{{hideBtnData}}'></template>
 <!-- <view class="c-minheight wx-view_TLb9dg" data-c_e_id="wx_view_0693c3c4">
     <navigator class="wx-navigator_5JV9x3" data-c_e_id="wx_navigator_89d6e091" hover-class="navigator-hover" open-type="redirect">
         <text class="c-block wx-text_7UUdKC" data-c_e_id="wx_text_bfcc9d92">navigator</text>

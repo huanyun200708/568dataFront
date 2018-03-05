@@ -1,3 +1,6 @@
+<import src="../template/template.wxml" />
+<template wx:if="{{!is_showHideBtn}}" is='hideBtn' 
+  data='{{hideBtnData}}'></template>
 <view class="c-minheight wx-view_hOLbFI" data-c_e_id="wx_view_21bc5393">
   <picker class="wx-picker_T6kSzT " style="display:flex;width:240px;height:40px;margin-top:60px;align-self:center;margin-left:0px;" data-c_e_id="wx_picker_52cedf91" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
     <text class="" style="width:180px;height: 20px;display:block;float:left;" data-c_e_id="wx_text_8f91a3a4">{{array[index]}}</text>

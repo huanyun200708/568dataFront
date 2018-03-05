@@ -1,3 +1,6 @@
+<import src="../template/template.wxml" />
+<template wx:if="{{!is_showHideBtn}}" is='hideBtn' 
+  data='{{hideBtnData}}'></template>
 <view class="c-minheight wx-view_J608gI" data-c_e_id="wx_view_2f7bb806">
     <image class="wx-image_dqDS4l" data-c_e_id="wx_image_99de9a3a" mode="scaleToFill" src="https://51yangcong.com/568data/image/jrhy.png" style="background-size:  100% 100%; background-position:  0% 0%; background-repeat:  no-repeat; background-image: url(https://51yangcong.com/568data/image/jrhy.png); "/>
     <text class="c-block wx-text_vO2Sg3" data-c_e_id="wx_text_e57a5933">普通会员：单次查询价格12元</text>

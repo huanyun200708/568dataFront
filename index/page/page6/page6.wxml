@@ -1,3 +1,6 @@
+<import src="../template/template.wxml" />
+<template wx:if="{{!is_showHideBtn}}" is='hideBtn' 
+  data='{{hideBtnData}}'></template>
 <view class="c-minheight wx-view_hayoar" data-c_e_id="wx_view_6d45a03f">
     <swiper autoplay="True" class="wx-swiper_fKTqhJ" data-c_e_id="wx_swiper_3968806c" indicator-dots="True" lower-threshold="50">
         <swiper-item class="c-full wx-swiper-item_n5s0LF" data-c_e_id="wx_swiper_item_92a1ed10">

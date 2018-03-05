@@ -1,3 +1,6 @@
+<import src="../template/template.wxml" />
+<template wx:if="{{!is_showHideBtn}}" is='hideBtn' 
+  data='{{hideBtnData}}'></template>
 <view class="c-minheight wx-view_qFg2AX" style="padding-top:60px" data-c_e_id="wx_view_89d9d011">
     <input class="c-block c-fullwidth wx-input_8gE65o" style='margin-left:140px;width:160px;height:40px;' bindinput="bindKeyInput" data-c_e_id="wx_input_76f73926" name="input1" placeholder="请输入车牌号" type="text"/>
      <picker class="wx-picker_T6kSzT" style="width:145px;margin-left:5px;margin-top:-40px" data-c_e_id="wx_picker_52cedf91" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
