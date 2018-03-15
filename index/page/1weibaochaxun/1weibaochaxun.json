@@ -1,7 +1,7 @@
 {
   "navigationBarTextStyle": "white", 
   "navigationBarBackgroundColor": "#000000", 
-  "navigationBarTitleText": "维保记录查询", 
+  "navigationBarTitleText": "保养记录查询", 
   "backgroundColor": "#ffffff", 
   "enablePullDownRefresh": true, 
   "backgroundTextStyle": "dark"
