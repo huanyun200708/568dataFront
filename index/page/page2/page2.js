@@ -110,6 +110,7 @@ Page({
 			wx.request({
 				url: 'https://51yangcong.com/568data/PayRecord',
 				//url: 'https://localhost/568data/PayRecord',
+				//url: 'https://123.206.89.114/568data/PayRecord',
 				method: 'POST',
 				header: {
 					'content-type': 'application/x-www-form-urlencoded'

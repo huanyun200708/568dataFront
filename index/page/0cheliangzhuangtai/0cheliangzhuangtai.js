@@ -89,6 +89,7 @@ Page({
 		wx.request({
 			url: 'https://51yangcong.com/568data/QueryOrder',
 			//url: 'https://localhost/568data/QueryOrder',
+			//url: 'https://123.206.89.114/568data/QueryOrder',
 			method: 'POST',
 			header: {
 				'content-type': 'application/x-www-form-urlencoded'

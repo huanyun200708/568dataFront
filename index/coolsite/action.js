@@ -74,6 +74,10 @@ var event_tap = function(_act) {
 
 //事件执行
 var _execType = function(_exec, data) {
+	wx.showLoading({
+		title: '查询中。。。',
+		mask: true
+	});
 	var _type = _exec['_execType'];
 	var time = new Date().getTime();
 	console.log(_type+"---"+time);
@@ -98,7 +102,7 @@ var _execType = function(_exec, data) {
 			'openId': getApp().data.userOpenId
 		},
 		success: function success(res) {
-			wx.hideLoading(); //////////////////////////////////////////////
+			//wx.hideLoading(); //////////////////////////////////////////////
 			console.log(res.data)
 			var o = res.data;
 			if(o != null && o.length > 0) {
@@ -185,7 +189,7 @@ var _execType = function(_exec, data) {
 				default:
 					break;
 			}
-			wx.hideLoading(); //////////////////////////////////////////////
+			//wx.hideLoading(); //////////////////////////////////////////////
 			return;
 		},
 		'fail': function(res) {
@@ -1083,6 +1087,7 @@ var clzt2 = function(detail, data, useDaijinquan) {
 		wx.request({
 			url: 'https://51yangcong.com/568data/PayOff',
 			//url: 'http://127.0.0.1:8880/568data/PayOff',
+			//url: 'https://123.206.89.114/568data/PayOff',
 			method: 'POST',
 			header: {
 				'content-type': 'application/x-www-form-urlencoded'
@@ -1130,7 +1135,8 @@ var clzt2 = function(detail, data, useDaijinquan) {
 						if(res.errMsg == "requestPayment:ok") {
 							wx.request({
 								url: 'https://51yangcong.com/568data/PaySuccess',
-								//url: 'https://localhost/568data/PaySuccess',
+								//url: 'http://127.0.0.1:8880/568data/PaySuccess',
+								//url: 'https://123.206.89.114/568data/PaySuccess',
 								method: 'POST',
 								header: {
 									'content-type': 'application/x-www-form-urlencoded'

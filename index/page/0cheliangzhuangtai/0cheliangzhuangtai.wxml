@@ -9,7 +9,8 @@
       <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.reason}}</text>
     </view>
   </view>
-  <view class="tr bg-g">
+  <!-- 简易版不显示 -->
+  <view class="tr bg-g" wx:if="{{result.isQuerySimple == '0'}}">
     <view class="td-1" selectable="true">序号</view>
     <view class="td-2" selectable="true" scroll-y="true">
       <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.number}}</text>
@@ -129,133 +130,187 @@
       <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.pps}}</text>
     </view>
   </view>
-  <view class="tr bg-g">
-    <view class="td-1" selectable="true"> 上市年份 </view>
-    <view class="td-2" selectable="true" scroll-y="true">
-      <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.listDate}}</text>
+  <!-- 以下区分简易版还是详细版 -->
+  <!-- 简易版显示 -->
+  <view wx:if="{{result.isQuerySimple == '1'}}">
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 最大功率（kw） </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.MaxJourney}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 轴数 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.shaft}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 轴距 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.wheelBase}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 前轮距 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.frontTread}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 后轮距 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.rearTread}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 总质量 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.crossWeight}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 整备质量 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.curbWeight}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 核定载质量 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.loadWeight}}</text>
+      </view>
     </view>
   </view>
-  <view class="tr bg-g">
-    <view class="td-1" selectable="true"> 车型 </view>
-    <view class="td-2" selectable="true" scroll-y="true">
-      <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.demio}}</text>
+  <!-- 详细版显示 -->
+  <view class="tr bg-g2" wx:else>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 上市年份 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.listDate}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 车型 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.demio}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 变速箱描述 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.shiftDesc}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 上市月份 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.listMonth}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 排放标准 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.effluentNorm}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 车身形式 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.carForm}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> VIN对应年份 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.vinDate}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 车型代码 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.carCode}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 年款 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.MJ}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 车门数 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.doorCount}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 燃油标号 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.fuelCode}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 厂家名称 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.brandName}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 变速器类型 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.shiftType}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 销售名称 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.sellName}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 车辆级别 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.carLevel}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 驱动方式 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.dricerWay}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 档位数 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.gearsCount}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 指导价格 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.guidePrice}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 发动机最大功率（KW） </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.MaxPower}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 缸数 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.vatCount}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g">
+      <view class="td-1" selectable="true"> 停产年份 </view>
+      <view class="td-2" selectable="true" scroll-y="true">
+        <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.stopDate}}</text>
+      </view>
     </view>
   </view>
-  <view class="tr bg-g">
-    <view class="td-1" selectable="true"> 变速箱描述 </view>
-    <view class="td-2" selectable="true" scroll-y="true">
-      <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.shiftDesc}}</text>
-    </view>
-  </view>
-  <view class="tr bg-g">
-    <view class="td-1" selectable="true"> 上市月份 </view>
-    <view class="td-2" selectable="true" scroll-y="true">
-      <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.listMonth}}</text>
-    </view>
-  </view>
-  <view class="tr bg-g">
-    <view class="td-1" selectable="true"> 排放标准 </view>
-    <view class="td-2" selectable="true" scroll-y="true">
-      <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.effluentNorm}}</text>
-    </view>
-  </view>
-  <view class="tr bg-g">
-    <view class="td-1" selectable="true"> 车身形式 </view>
-    <view class="td-2" selectable="true" scroll-y="true">
-      <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.carForm}}</text>
-    </view>
-  </view>
-  <view class="tr bg-g">
-    <view class="td-1" selectable="true"> VIN对应年份 </view>
-    <view class="td-2" selectable="true" scroll-y="true">
-      <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.vinDate}}</text>
-    </view>
-  </view>
-  <view class="tr bg-g">
-    <view class="td-1" selectable="true"> 车型代码 </view>
-    <view class="td-2" selectable="true" scroll-y="true">
-      <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.carCode}}</text>
-    </view>
-  </view>
-  <view class="tr bg-g">
-    <view class="td-1" selectable="true"> 年款 </view>
-    <view class="td-2" selectable="true" scroll-y="true">
-      <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.MJ}}</text>
-    </view>
-  </view>
-  <view class="tr bg-g">
-    <view class="td-1" selectable="true"> 车门数 </view>
-    <view class="td-2" selectable="true" scroll-y="true">
-      <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.doorCount}}</text>
-    </view>
-  </view>
-  <view class="tr bg-g">
-    <view class="td-1" selectable="true"> 燃油标号 </view>
-    <view class="td-2" selectable="true" scroll-y="true">
-      <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.fuelCode}}</text>
-    </view>
-  </view>
-  <view class="tr bg-g">
-    <view class="td-1" selectable="true"> 厂家名称 </view>
-    <view class="td-2" selectable="true" scroll-y="true">
-      <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.brandName}}</text>
-    </view>
-  </view>
-  <view class="tr bg-g">
-    <view class="td-1" selectable="true"> 变速器类型 </view>
-    <view class="td-2" selectable="true" scroll-y="true">
-      <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.shiftType}}</text>
-    </view>
-  </view>
-  <view class="tr bg-g">
-    <view class="td-1" selectable="true"> 销售名称 </view>
-    <view class="td-2" selectable="true" scroll-y="true">
-      <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.sellName}}</text>
-    </view>
-  </view>
-  <view class="tr bg-g">
-    <view class="td-1" selectable="true"> 车辆级别 </view>
-    <view class="td-2" selectable="true" scroll-y="true">
-      <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.carLevel}}</text>
-    </view>
-  </view>
-  <view class="tr bg-g">
-    <view class="td-1" selectable="true"> 驱动方式 </view>
-    <view class="td-2" selectable="true" scroll-y="true">
-      <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.dricerWay}}</text>
-    </view>
-  </view>
-  <view class="tr bg-g">
-    <view class="td-1" selectable="true"> 档位数 </view>
-    <view class="td-2" selectable="true" scroll-y="true">
-      <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.gearsCount}}</text>
-    </view>
-  </view>
-  <view class="tr bg-g">
-    <view class="td-1" selectable="true"> 指导价格 </view>
-    <view class="td-2" selectable="true" scroll-y="true">
-      <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.guidePrice}}</text>
-    </view>
-  </view>
-  <view class="tr bg-g">
-    <view class="td-1" selectable="true"> 发动机最大功率（KW） </view>
-    <view class="td-2" selectable="true" scroll-y="true">
-      <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.MaxPower}}</text>
-    </view>
-  </view>
-  <view class="tr bg-g">
-    <view class="td-1" selectable="true"> 缸数 </view>
-    <view class="td-2" selectable="true" scroll-y="true">
-      <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.vatCount}}</text>
-    </view>
-  </view>
-  <view class="tr bg-g">
-    <view class="td-1" selectable="true"> 停产年份 </view>
-    <view class="td-2" selectable="true" scroll-y="true">
-      <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{result.stopDate}}</text>
-    </view>
-  </view>
-
 </view>
 <view class="c-minheight wx-view_eEOWJz" data-c_e_id="wx_view_a358dca2">
   <text class="c-block wx-text_QLV28Q" data-c_e_id="wx_text_e73553f5">- 568数据报告诠释&说明 -</text>
