@@ -183,7 +183,7 @@
     </view>
   </view>
   <!-- 详细版显示 -->
-  <view class="tr bg-g2" wx:else>
+  <view  wx:if="{{result.isQuerySimple != '1'}}">
     <view class="tr bg-g">
       <view class="td-1" selectable="true"> 上市年份 </view>
       <view class="td-2" selectable="true" scroll-y="true">
